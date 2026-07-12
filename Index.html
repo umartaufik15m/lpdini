@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KOHATI Transformatif</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#fff;
+overflow-x:hidden;
+}
+
+/* blob */
+
+.blob{
+position:absolute;
+width:600px;
+height:600px;
+border-radius:50%;
+filter:blur(80px);
+opacity:.25;
+animation:float 12s infinite ease-in-out;
+}
+
+.blob1{
+background:#ec4899;
+top:-150px;
+left:-150px;
+}
+
+.blob2{
+background:#16a34a;
+right:-150px;
+bottom:-150px;
+animation-delay:4s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(50px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.glass{
+
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.25);
+
+}
+
+.hero-title{
+
+background:linear-gradient(90deg,#ec4899,#16a34a);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+.counter{
+
+font-size:50px;
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="fixed top-0 w-full z-50 glass">
+
+<div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+
+<div class="font-bold text-2xl text-pink-600">
+
+KOHATI
+
+<span class="text-green-600">
+TRANSFORMATIF
+</span>
+
+</div>
+
+<div class="hidden md:flex gap-8 text-gray-700 font-medium">
+
+<a href="#">Home</a>
+
+<a href="#about">Tentang</a>
+
+<a href="#">Program</a>
+
+<a href="#">Roadmap</a>
+
+<a href="#">Kontak</a>
+
+</div>
+
+<a href="#"
+
+class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-3 rounded-full">
+
+Manifesto
+
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="relative h-screen flex items-center overflow-hidden">
+
+<div class="blob blob1"></div>
+
+<div class="blob blob2"></div>
+
+<div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-10 items-center z-20">
+
+<!-- LEFT -->
+
+<div>
+
+<p class="uppercase tracking-[6px] text-green-700 font-semibold">
+
+FOR KOHATI PB HMI 2027–2029
+
+</p>
+
+<h1 class="hero-title text-6xl md:text-7xl font-extrabold leading-tight mt-5">
+
+KOHATI
+<br>
+
+TRANSFORMATIF
+
+</h1>
+
+<p class="mt-8 text-gray-700 text-lg leading-9">
+
+Membangun Muslimah Berkualitas Insan Cita
+melalui organisasi yang modern,
+profesional,
+adaptif,
+serta berdampak bagi perempuan,
+umat,
+dan bangsa.
+
+</p>
+
+<div class="mt-10 flex gap-5">
+
+<button class="bg-pink-600 text-white px-8 py-4 rounded-full hover:scale-105 duration-300">
+
+Dukung Gerakan
+
+</button>
+
+<button class="border-2 border-green-600 text-green-700 px-8 py-4 rounded-full hover:bg-green-600 hover:text-white duration-300">
+
+Lihat Manifesto
+
+</button>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="flex justify-center">
+
+<div class="glass rounded-[40px] p-6 shadow-2xl">
+
+<img
+src="assets/dini.png"
+class="w-[420px] rounded-3xl">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="py-32">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="grid md:grid-cols-2 gap-16 items-center">
+
+<div>
+
+<img
+src="assets/profile.jpg"
+class="rounded-[40px] shadow-xl">
+
+</div>
+
+<div>
+
+<p class="text-pink-600 font-bold uppercase tracking-[5px]">
+
+Tentang Kandidat
+
+</p>
+
+<h2 class="text-5xl font-bold mt-4">
+
+Dini Asmiatul Amanah, M.Pd
+
+</h2>
+
+<p class="mt-8 text-gray-600 leading-9">
+
+Aktivis perempuan,
+akademisi,
+dan kader HMI yang telah
+berkiprah pada berbagai jenjang kepemimpinan organisasi.
+
+Berkomitmen menghadirkan KOHATI yang
+lebih profesional,
+berintegritas,
+adaptif terhadap perkembangan zaman,
+dan mampu memberikan dampak nyata.
+
+</p>
+
+<div class="mt-8">
+
+<p class="italic text-xl text-pink-600">
+
+"Peradaban besar lahir dari perempuan
+yang diberi ruang untuk memimpin."
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="pb-32">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="grid md:grid-cols-4 gap-8">
+
+<div class="glass rounded-3xl p-10 text-center">
+
+<div class="counter" data-target="10">0</div>
+
+<p class="mt-3">
+
+Tahun Pengabdian
+
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-10 text-center">
+
+<div class="counter" data-target="20">0</div>
+
+<p class="mt-3">
+
+Jabatan Organisasi
+
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-10 text-center">
+
+<div class="counter" data-target="8">0</div>
+
+<p class="mt-3">
+
+Program Prioritas
+
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-10 text-center">
+
+<div class="counter" data-target="100">0</div>
+
+<p class="mt-3">
+
+Target Cabang
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const counters=document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.getAttribute("data-target");
+
+const c=+counter.innerText;
+
+const increment=target/80;
+
+if(c<target){
+
+counter.innerText=Math.ceil(c+increment);
+
+setTimeout(update,20);
+
+}else{
+
+counter.innerText=target+"+";
+
+}
+
+}
+
+update();
+
+});
+
+</script>
+
+</body>
+</html>
+<!-- ================= TIMELINE ================= -->
+
+<section class="py-32 bg-gradient-to-br from-pink-50 via-white to-green-50">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="text-center mb-20">
+
+<p class="uppercase tracking-[6px] text-pink-600 font-semibold">
+Journey
+</p>
+
+<h2 class="text-5xl font-bold mt-4">
+
+Perjalanan Kepemimpinan
+
+</h2>
+
+<p class="text-gray-500 mt-6">
+
+Langkah kecil yang membentuk perjalanan besar.
+
+</p>
+
+</div>
+
+<div class="relative">
+
+<div class="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-pink-500 to-green-500 -translate-x-1/2 hidden md:block"></div>
+
+<div class="space-y-20">
+
+<div class="grid md:grid-cols-2 items-center gap-10">
+
+<div class="text-right">
+
+<h3 class="text-3xl font-bold text-pink-600">
+
+2017
+
+</h3>
+
+<p class="mt-4 text-gray-600 leading-8">
+
+Bendahara Umum HMI Komisariat FPIPS UPI.
+
+</p>
+
+</div>
+
+<div></div>
+
+</div>
+
+<div class="grid md:grid-cols-2 items-center gap-10">
+
+<div></div>
+
+<div>
+
+<h3 class="text-3xl font-bold text-green-600">
+
+2018
+
+</h3>
+
+<p class="mt-4 text-gray-600 leading-8">
+
+Ketua Umum HMI Komisariat FPIPS UPI.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="grid md:grid-cols-2 items-center gap-10">
+
+<div class="text-right">
+
+<h3 class="text-3xl font-bold text-pink-600">
+
+2021
+
+</h3>
+
+<p class="mt-4 text-gray-600 leading-8">
+
+Ketua Umum KOHATI Cabang Bandung.
+
+</p>
+
+</div>
+
+<div></div>
+
+</div>
+
+<div class="grid md:grid-cols-2 items-center gap-10">
+
+<div></div>
+
+<div>
+
+<h3 class="text-3xl font-bold text-green-600">
+
+2024
+
+</h3>
+
+<p class="mt-4 text-gray-600 leading-8">
+
+Ketua Bidang Pemberdayaan Umat PB HMI.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="grid md:grid-cols-2 items-center gap-10">
+
+<div class="text-right">
+
+<h3 class="text-3xl font-bold text-pink-600">
+
+2027
+
+</h3>
+
+<p class="mt-4 text-gray-600 leading-8">
+
+Calon Ketua Umum KOHATI PB HMI.
+
+</p>
+
+</div>
+
+<div></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="py-32">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="text-center">
+
+<p class="uppercase tracking-[6px] text-green-600">
+
+Experience
+
+</p>
+
+<h2 class="text-5xl font-bold mt-4">
+
+Jejak Pengabdian
+
+</h2>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-8 mt-20">
+
+<div class="glass rounded-3xl p-8 hover:-translate-y-3 duration-300">
+
+<div class="text-5xl">🎓</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Akademisi
+
+</h3>
+
+<p class="mt-4 text-gray-600 leading-8">
+
+Magister Pendidikan Sosiologi Universitas Pendidikan Indonesia.
+
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-8 hover:-translate-y-3 duration-300">
+
+<div class="text-5xl">🏛️</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Organisasi
+
+</h3>
+
+<p class="mt-4 text-gray-600 leading-8">
+
+Berpengalaman memimpin pada berbagai jenjang HMI dan KOHATI.
+
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-8 hover:-translate-y-3 duration-300">
+
+<div class="text-5xl">🌏</div>
+
+<h3 class="text-2xl font-bold mt-6">
+
+Pengabdian
+
+</h3>
+
+<p class="mt-4 text-gray-600 leading-8">
+
+Aktif membangun kolaborasi nasional, perempuan, dan masyarakat.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="py-32 bg-gradient-to-r from-pink-50 to-green-50">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="text-center">
+
+<p class="uppercase tracking-[6px] text-pink-600">
+
+Achievement
+
+</p>
+
+<h2 class="text-5xl font-bold mt-4">
+
+Prestasi
+
+</h2>
+
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+
+<div class="bg-white rounded-3xl shadow-xl p-8 hover:scale-105 duration-300">
+
+🏆
+
+<h3 class="font-bold mt-5">
+
+Runner Up Puteri Wisata Indonesia
+
+</h3>
+
+<p class="text-gray-500 mt-2">
+
+2021
+
+</p>
+
+</div>
+
+<div class="bg-white rounded-3xl shadow-xl p-8 hover:scale-105 duration-300">
+
+👑
+
+<h3 class="font-bold mt-5">
+
+Puteri Wisata Jawa Barat
+
+</h3>
+
+<p class="text-gray-500 mt-2">
+
+2020
+
+</p>
+
+</div>
+
+<div class="bg-white rounded-3xl shadow-xl p-8 hover:scale-105 duration-300">
+
+📚
+
+<h3 class="font-bold mt-5">
+
+Publikasi Scopus
+
+</h3>
+
+<p class="text-gray-500 mt-2">
+
+Q3 International Journal
+
+</p>
+
+</div>
+
+<div class="bg-white rounded-3xl shadow-xl p-8 hover:scale-105 duration-300">
+
+⭐
+
+<h3 class="font-bold mt-5">
+
+Peserta Terbaik LK Kohati
+
+</h3>
+
+<p class="text-gray-500 mt-2">
+
+Semarang
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="py-32">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="text-center">
+
+<p class="uppercase tracking-[6px] text-green-600">
+
+Grand Vision
+
+</p>
+
+<h2 class="text-5xl font-bold mt-4">
+
+3 Pilar Besar
+
+</h2>
+
+<p class="text-gray-500 mt-6">
+
+KOHATI TRANSFORMATIF
+
+</p>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-10 mt-20">
+
+<div class="rounded-[35px] p-10 bg-gradient-to-br from-pink-500 to-pink-700 text-white hover:scale-105 duration-300">
+
+<div class="text-6xl">
+
+🌱
+
+</div>
+
+<h3 class="text-3xl font-bold mt-8">
+
+Elevating Development
+
+</h3>
+
+<ul class="mt-8 space-y-3 opacity-90">
+
+<li>✓ Penguatan kaderisasi</li>
+
+<li>✓ Kepemimpinan</li>
+
+<li>✓ Budaya intelektual</li>
+
+<li>✓ Pembinaan kader</li>
+
+</ul>
+
+</div>
+
+<div class="rounded-[35px] p-10 bg-gradient-to-br from-green-500 to-green-700 text-white hover:scale-105 duration-300">
+
+<div class="text-6xl">
+
+🏛️
+
+</div>
+
+<h3 class="text-3xl font-bold mt-8">
+
+Organizational Transformation
+
+</h3>
+
+<ul class="mt-8 space-y-3 opacity-90">
+
+<li>✓ Digitalisasi</li>
+
+<li>✓ Database Nasional</li>
+
+<li>✓ Tata Kelola</li>
+
+<li>✓ Monitoring</li>
+
+</ul>
+
+</div>
+
+<div class="rounded-[35px] p-10 bg-gradient-to-br from-pink-500 via-fuchsia-500 to-green-600 text-white hover:scale-105 duration-300">
+
+<div class="text-6xl">
+
+🤝
+
+</div>
+
+<h3 class="text-3xl font-bold mt-8">
+
+Collaboration & Impact
+
+</h3>
+
+<ul class="mt-8 space-y-3 opacity-90">
+
+<li>✓ Kemitraan Strategis</li>
+
+<li>✓ Women Empowerment</li>
+
+<li>✓ Pengabdian</li>
+
+<li>✓ Global Partnership</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= AGENDA TRANSFORMASI ================= -->
+
+<section class="py-32 bg-gradient-to-br from-pink-50 via-white to-green-50">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="text-center">
+
+<p class="uppercase tracking-[6px] text-pink-600 font-semibold">
+Agenda
+</p>
+
+<h2 class="text-5xl font-bold mt-5">
+Agenda Transformasi
+</h2>
+
+<p class="text-gray-500 mt-6">
+Lima agenda utama menuju organisasi yang modern,
+adaptif, profesional, dan berdampak.
+</p>
+
+</div>
+
+<div class="grid md:grid-cols-5 gap-8 mt-24">
+
+<div class="bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-3 duration-300">
+<div class="text-5xl">①</div>
+<h3 class="font-bold text-xl mt-6">Transformasi Kaderisasi</h3>
+<p class="mt-4 text-gray-600 leading-7">
+Penguatan sistem pembinaan dan pengembangan kader.
+</p>
+</div>
+
+<div class="bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-3 duration-300">
+<div class="text-5xl">②</div>
+<h3 class="font-bold text-xl mt-6">Transformasi Organisasi</h3>
+<p class="mt-4 text-gray-600 leading-7">
+Digitalisasi tata kelola organisasi.
+</p>
+</div>
+
+<div class="bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-3 duration-300">
+<div class="text-5xl">③</div>
+<h3 class="font-bold text-xl mt-6">Transformasi Kepemimpinan</h3>
+<p class="mt-4 text-gray-600 leading-7">
+Melahirkan pemimpin perempuan yang visioner.
+</p>
+</div>
+
+<div class="bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-3 duration-300">
+<div class="text-5xl">④</div>
+<h3 class="font-bold text-xl mt-6">Transformasi Kolaborasi</h3>
+<p class="mt-4 text-gray-600 leading-7">
+Membangun sinergi nasional dan global.
+</p>
+</div>
+
+<div class="bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-3 duration-300">
+<div class="text-5xl">⑤</div>
+<h3 class="font-bold text-xl mt-6">Transformasi Dampak</h3>
+<p class="mt-4 text-gray-600 leading-7">
+Gerakan nyata untuk perempuan, umat, dan bangsa.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="py-32">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="text-center">
+
+<p class="uppercase tracking-[6px] text-green-600">
+
+Priority Programs
+
+</p>
+
+<h2 class="text-5xl font-bold mt-5">
+
+8 Program Prioritas
+
+</h2>
+
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+
+<div class="glass rounded-3xl p-8 hover:scale-105 duration-300">
+💡
+<h3 class="font-bold mt-6">KOHATI Transformasi</h3>
+</div>
+
+<div class="glass rounded-3xl p-8 hover:scale-105 duration-300">
+💻
+<h3 class="font-bold mt-6">Digitalisasi & Development</h3>
+</div>
+
+<div class="glass rounded-3xl p-8 hover:scale-105 duration-300">
+📚
+<h3 class="font-bold mt-6">Research & Policy Center</h3>
+</div>
+
+<div class="glass rounded-3xl p-8 hover:scale-105 duration-300">
+🌎
+<h3 class="font-bold mt-6">Society Global Partnership</h3>
+</div>
+
+<div class="glass rounded-3xl p-8 hover:scale-105 duration-300">
+💰
+<h3 class="font-bold mt-6">Women Economic Empowerment</h3>
+</div>
+
+<div class="glass rounded-3xl p-8 hover:scale-105 duration-300">
+📊
+<h3 class="font-bold mt-6">KOHATI Data Center</h3>
+</div>
+
+<div class="glass rounded-3xl p-8 hover:scale-105 duration-300">
+🌿
+<h3 class="font-bold mt-6">Green Movement</h3>
+</div>
+
+<div class="glass rounded-3xl p-8 hover:scale-105 duration-300">
+🎓
+<h3 class="font-bold mt-6">Scholarship</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="py-32 bg-gradient-to-r from-pink-600 via-fuchsia-600 to-green-600 text-white">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="text-center">
+
+<p class="uppercase tracking-[6px]">
+
+Execution Plan
+
+</p>
+
+<h2 class="text-5xl font-bold mt-5">
+
+Roadmap Pemenangan
+
+</h2>
+
+</div>
+
+<div class="mt-24 grid md:grid-cols-6 gap-6">
+
+<div class="glass rounded-3xl p-6 text-center">
+<h3 class="font-bold">Phase 1</h3>
+<p class="mt-4 text-sm">Pembentukan Tim</p>
+</div>
+
+<div class="glass rounded-3xl p-6 text-center">
+<h3 class="font-bold">Phase 2</h3>
+<p class="mt-4 text-sm">Konsolidasi Internal</p>
+</div>
+
+<div class="glass rounded-3xl p-6 text-center">
+<h3 class="font-bold">Phase 3</h3>
+<p class="mt-4 text-sm">Roadshow Nasional</p>
+</div>
+
+<div class="glass rounded-3xl p-6 text-center">
+<h3 class="font-bold">Phase 4</h3>
+<p class="mt-4 text-sm">Branding Digital</p>
+</div>
+
+<div class="glass rounded-3xl p-6 text-center">
+<h3 class="font-bold">Phase 5</h3>
+<p class="mt-4 text-sm">Finalisasi Dukungan</p>
+</div>
+
+<div class="glass rounded-3xl p-6 text-center">
+<h3 class="font-bold">Phase 6</h3>
+<p class="mt-4 text-sm">Munas PB HMI</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="py-40 relative overflow-hidden">
+
+<div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-white to-green-500 opacity-10"></div>
+
+<div class="max-w-5xl mx-auto px-8 relative text-center">
+
+<p class="uppercase tracking-[6px] text-pink-600">
+
+Manifesto
+
+</p>
+
+<h2 class="text-6xl font-black leading-tight mt-10">
+
+Transformasi bukan berarti mengubah jati diri organisasi,
+
+melainkan memperkuat nilai perjuangan agar semakin memberi manfaat.
+
+</h2>
+
+<p class="mt-12 text-2xl italic text-green-700">
+
+"KOHATI Transformatif"
+
+</p>
+
+</div>
+
+</section>
+<!-- ================= GALLERY ================= -->
+
+<section class="py-32 bg-gradient-to-br from-pink-50 via-white to-green-50">
+
+<div class="max-w-7xl mx-auto px-8">
+
+<div class="text-center mb-20">
+
+<p class="uppercase tracking-[6px] text-pink-600">
+Gallery
+</p>
+
+<h2 class="text-5xl font-bold mt-5">
+Jejak Perjalanan
+</h2>
+
+<p class="text-gray-500 mt-6">
+Dokumentasi pengabdian, kaderisasi, dan kolaborasi.
+</p>
+
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+<img src="assets/gallery/1.jpg" class="rounded-3xl hover:scale-105 duration-500 shadow-xl">
+
+<img src="assets/gallery/2.jpg" class="rounded-3xl hover:scale-105 duration-500 shadow-xl">
+
+<img src="assets/gallery/3.jpg" class="rounded-3xl hover:scale-105 duration-500 shadow-xl">
+
+<img src="assets/gallery/4.jpg" class="rounded-3xl hover:scale-105 duration-500 shadow-xl">
+
+<img src="assets/gallery/5.jpg" class="rounded-3xl hover:scale-105 duration-500 shadow-xl">
+
+<img src="assets/gallery/6.jpg" class="rounded-3xl hover:scale-105 duration-500 shadow-xl">
+
+<img src="assets/gallery/7.jpg" class="rounded-3xl hover:scale-105 duration-500 shadow-xl">
+
+<img src="assets/gallery/8.jpg" class="rounded-3xl hover:scale-105 duration-500 shadow-xl">
+
+</div>
+
+</div>
+
+</section>
+<section class="py-32">
+
+<div class="max-w-6xl mx-auto text-center px-8">
+
+<p class="uppercase tracking-[6px] text-green-600">
+
+Support
+
+</p>
+
+<h2 class="text-5xl font-bold mt-5">
+
+Bersama Membangun
+KOHATI Masa Depan
+
+</h2>
+
+<div class="grid md:grid-cols-4 gap-8 mt-20">
+
+<div class="glass p-10 rounded-3xl">
+
+<h3 class="text-4xl font-bold text-pink-600">
+
+160+
+
+</h3>
+
+<p class="mt-3">
+
+Cabang HMI
+
+</p>
+
+</div>
+
+<div class="glass p-10 rounded-3xl">
+
+<h3 class="text-4xl font-bold text-green-600">
+
+34
+
+</h3>
+
+<p class="mt-3">
+
+Provinsi
+
+</p>
+
+</div>
+
+<div class="glass p-10 rounded-3xl">
+
+<h3 class="text-4xl font-bold text-pink-600">
+
+1000+
+
+</h3>
+
+<p class="mt-3">
+
+Kader
+
+</p>
+
+</div>
+
+<div class="glass p-10 rounded-3xl">
+
+<h3 class="text-4xl font-bold text-green-600">
+
+∞
+
+</h3>
+
+<p class="mt-3">
+
+Kolaborasi
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="py-40 bg-gradient-to-r from-pink-600 via-fuchsia-600 to-green-600 text-white">
+
+<div class="max-w-4xl mx-auto text-center px-8">
+
+<h2 class="text-6xl font-black leading-tight">
+
+Saatnya
+
+KOHATI
+
+Melangkah
+
+Lebih Maju
+
+</h2>
+
+<p class="text-xl opacity-90 mt-10">
+
+Mari bersama membangun organisasi perempuan
+yang profesional,
+adaptif,
+dan berdampak.
+
+</p>
+
+<div class="mt-14 flex flex-wrap justify-center gap-6">
+
+<a href="#"
+class="bg-white text-pink-600 px-10 py-5 rounded-full font-bold hover:scale-105 duration-300">
+
+Dukung Gerakan
+
+</a>
+
+<a href="#"
+class="border-2 border-white px-10 py-5 rounded-full font-bold hover:bg-white hover:text-pink-600 duration-300">
+
+Download Manifesto
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+<footer class="bg-gray-950 text-white">
+
+<div class="max-w-7xl mx-auto px-8 py-20">
+
+<div class="grid md:grid-cols-3 gap-12">
+
+<div>
+
+<h2 class="text-3xl font-bold">
+
+KOHATI
+<span class="text-pink-500">
+TRANSFORMATIF
+</span>
+
+</h2>
+
+<p class="text-gray-400 mt-6 leading-8">
+
+Membangun Muslimah Berkualitas Insan Cita
+melalui transformasi organisasi
+yang modern,
+profesional,
+dan berdampak.
+
+</p>
+
+</div>
+
+<div>
+
+<h3 class="font-bold text-xl">
+
+Menu
+
+</h3>
+
+<ul class="space-y-3 mt-6 text-gray-400">
+
+<li>Home</li>
+
+<li>Tentang</li>
+
+<li>Program</li>
+
+<li>Roadmap</li>
+
+<li>Gallery</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3 class="font-bold text-xl">
+
+Follow
+
+</h3>
+
+<div class="flex gap-5 mt-6">
+
+<div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center">
+
+📷
+
+</div>
+
+<div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center">
+
+💬
+
+</div>
+
+<div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center">
+
+✉️
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="border-gray-700 my-12">
+
+<p class="text-center text-gray-500">
+
+© 2026 KOHATI TRANSFORMATIF
+
+<br>
+
+Yakin Usaha Sampai.
+
+</p>
+
+</div>
+
+</footer>
+<a href="#"
+class="fixed bottom-8 right-8 bg-pink-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 duration-300 z-50">
+
+↑
+
+</a>
+section{
+
+animation:fade .8s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+img{
+
+transition:.4s;
+
+}
+
+img:hover{
+
+box-shadow:0 30px 60px rgba(236,72,153,.25);
+
+}
