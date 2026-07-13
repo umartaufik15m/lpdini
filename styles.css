@@ -1,52 +1,1062 @@
-/* ==========================================================
-   Design tokens
-========================================================== */
-:root {
-  --color-pink: #ec4899;
-  --ease-smooth: cubic-bezier(.22, 1, .36, 1);
-  --duration-section: .8s;
-  --duration-image: .4s;
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#D6336C">
+<meta name="description" content="Dini Asmiatul Amanah, M.Pd — Calon Ketua Umum KOHATI PB HMI 2027–2029. Transformasi kaderisasi, organisasi, kepemimpinan, kolaborasi, dan dampak.">
+<title>TRANSFORMASI KOHATI — Dini Asmiatul Amanah</title>
 
-/* ==========================================================
-   Section fade-in
-========================================================== */
-section {
-  animation: fade var(--duration-section) var(--ease-smooth);
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-@keyframes fade {
-  from {
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          blossom: { 50:'#FDF1F5', 100:'#FBE0EA', 200:'#F5C1D6', 300:'#EB93B7', 400:'#E0659A', 500:'#D6336C', 600:'#B92457', 700:'#8F1C44', 800:'#6B1533', 900:'#4A0F24' },
+          forest:  { 50:'#EFF6EE', 100:'#DCEBDA', 200:'#B7D6B4', 300:'#8FBE8B', 400:'#59995A', 500:'#2F6B3D', 600:'#255530', 700:'#1D4426', 800:'#15331B', 900:'#0E2212' },
+          paper: '#FFFDF9',
+          mist: '#F4F1EB',
+          ink: '#1A1A1B',
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  /* =========================================================
+     1. DESIGN TOKENS
+  ========================================================= */
+  :root {
+    --rose: #D6336C;
+    --rose-dark: #8F1C44;
+    --forest: #2F6B3D;
+    --forest-dark: #1D4426;
+    --ink: #1A1A1B;
+    --paper: #FFFDF9;
+    --mist: #F4F1EB;
+    --line: #E7E1D6;
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --nav-h: 84px;
+  }
+
+  /* =========================================================
+     2. BASE / RESET
+  ========================================================= */
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  section[id] { scroll-margin-top: var(--nav-h); }
+
+  ::selection { background: var(--rose); color: #fff; }
+
+  /* =========================================================
+     3. ICON SYSTEM (sprite is styled once, used everywhere)
+  ========================================================= */
+  symbol { fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+  .icon { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+  .icon-sm { width: 1.1rem; height: 1.1rem; }
+  .icon-lg { width: 2rem; height: 2rem; }
+  .icon-xl { width: 2.75rem; height: 2.75rem; }
+
+  /* =========================================================
+     4. TYPOGRAPHY
+  ========================================================= */
+  .font-display { font-family: 'Fraunces', serif; }
+
+  .eyebrow {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+
+  .lede { line-height: 1.85; color: #4B4B4E; }
+
+  /* =========================================================
+     5. BUTTONS
+  ========================================================= */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), background-color .35s var(--ease), color .35s var(--ease);
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .btn-primary { background: var(--rose); color: #fff; box-shadow: 0 14px 30px -10px rgba(214,51,108,.55); }
+  .btn-primary:hover { background: var(--rose-dark); box-shadow: 0 18px 36px -8px rgba(214,51,108,.6); }
+
+  .btn-outline { border: 1.5px solid var(--forest); color: var(--forest-dark); }
+  .btn-outline:hover { background: var(--forest); color: #fff; }
+
+  .btn-ghost-light { border: 1.5px solid rgba(255,255,255,.55); color: #fff; }
+  .btn-ghost-light:hover { background: #fff; color: var(--rose-dark); }
+
+  .btn-white { background: #fff; color: var(--rose-dark); box-shadow: 0 14px 30px -10px rgba(0,0,0,.35); }
+
+  /* =========================================================
+     6. GLASS / CHIP / CARD COMPONENTS
+  ========================================================= */
+  .glass {
+    background: rgba(255,255,255,.6);
+    border: 1px solid rgba(255,255,255,.8);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .6rem 1.1rem;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 600;
+    border: 1.5px solid var(--line);
+    background: #fff;
+  }
+  .chip-rose { border-color: #F0BCD1; color: var(--rose-dark); }
+  .chip-forest { border-color: #C4DEC5; color: var(--forest-dark); }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 1.75rem;
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -20px rgba(26,26,27,.18); border-color: transparent; }
+
+  .icon-tile {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-tile-rose { background: var(--blossom-50, #FDF1F5); color: var(--rose-dark); }
+  .icon-tile-forest { background: #EFF6EE; color: var(--forest-dark); }
+
+  /* =========================================================
+     7. NAVBAR
+  ========================================================= */
+  #navbar {
+    height: var(--nav-h);
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background-color .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  #navbar.is-scrolled {
+    background: rgba(255,253,249,.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom-color: var(--line);
+    box-shadow: 0 10px 30px -20px rgba(26,26,27,.25);
+  }
+
+  .nav-link { position: relative; color: #4B4B4E; font-weight: 500; padding-bottom: 4px; }
+  .nav-link::after {
+    content: '';
+    position: absolute; left: 0; bottom: 0;
+    width: 0; height: 2px;
+    background: var(--rose);
+    transition: width .3s var(--ease);
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: var(--rose-dark); }
+  .nav-link.active::after { width: 100%; }
+
+  /* =========================================================
+     8. SCROLL PROGRESS BAR
+  ========================================================= */
+  #scroll-progress-track { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(0,0,0,.06); z-index: 60; }
+  #scroll-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--rose), var(--forest)); transition: width .1s linear; }
+
+  /* =========================================================
+     9. HERO
+  ========================================================= */
+  .hero-blob {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(90px);
+    opacity: .35;
+    pointer-events: none;
+  }
+  .hero-blob-1 { width: 520px; height: 520px; top: -160px; left: -140px; background: var(--rose); }
+  .hero-blob-2 { width: 560px; height: 560px; bottom: -200px; right: -160px; background: var(--forest); opacity: .28; }
+
+  .hero-title-accent {
+    background: linear-gradient(100deg, var(--rose) 0%, var(--rose-dark) 45%, var(--forest-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-ring {
+    position: absolute;
+    inset: -22px;
+    border: 1.5px dashed rgba(47,107,61,.35);
+    border-radius: 2.5rem;
+    animation: spin-slow 40s linear infinite;
+  }
+  @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+  .hero-credential {
+    position: absolute;
+    bottom: -1.25rem;
+    left: -1.25rem;
+    max-width: 230px;
+  }
+
+  .stat-divider { width: 1px; align-self: stretch; background: var(--line); }
+
+  /* =========================================================
+     10. TIMELINE (Jejak Kepemimpinan)
+  ========================================================= */
+  .timeline-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 1.15rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--rose), var(--forest));
+  }
+  @media (min-width: 768px) {
+    .timeline-line { left: 50%; transform: translateX(-50%); }
+  }
+
+  .timeline-dot {
+    width: 2.4rem; height: 2.4rem;
+    border-radius: 999px;
+    background: #fff;
+    border: 2px solid var(--rose);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--rose-dark);
+    box-shadow: 0 8px 20px -6px rgba(214,51,108,.35);
+  }
+  .timeline-item:nth-child(even) .timeline-dot { border-color: var(--forest); color: var(--forest-dark); box-shadow: 0 8px 20px -6px rgba(47,107,61,.35); }
+
+  /* =========================================================
+     11. GALLERY MASONRY
+  ========================================================= */
+  .masonry { column-count: 2; column-gap: 1rem; }
+  @media (min-width: 768px) { .masonry { column-count: 3; column-gap: 1.25rem; } }
+  @media (min-width: 1024px) { .masonry { column-count: 4; } }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -24px rgba(26,26,27,.35);
+  }
+  @media (min-width: 768px) { .masonry-item { margin-bottom: 1.25rem; } }
+
+  .masonry-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+  .masonry-item:hover img { transform: scale(1.06); }
+
+  .masonry-item:nth-child(4n+1) img { aspect-ratio: 3 / 4; }
+  .masonry-item:nth-child(4n+2) img { aspect-ratio: 1 / 1; }
+  .masonry-item:nth-child(4n+3) img { aspect-ratio: 4 / 5; }
+  .masonry-item:nth-child(4n)   img { aspect-ratio: 4 / 3; }
+
+  /* =========================================================
+     12. MANIFESTO (signature section)
+  ========================================================= */
+  .manifesto-section {
+    background:
+      radial-gradient(60% 60% at 85% 0%, rgba(214,51,108,.35), transparent 60%),
+      radial-gradient(50% 50% at 0% 100%, rgba(214,51,108,.12), transparent 60%),
+      var(--forest-dark);
+    color: #fff;
+  }
+  .manifesto-quote-mark { color: rgba(255,255,255,.22); }
+  .manifesto-heading { line-height: 1.28; }
+
+  /* =========================================================
+     13. FINAL CTA
+  ========================================================= */
+  .cta-section { background: linear-gradient(120deg, var(--rose) 0%, var(--rose-dark) 45%, var(--forest-dark) 100%); }
+
+  /* =========================================================
+     14. SCROLL REVEAL + STAGGER ANIMATION
+  ========================================================= */
+  [data-reveal] {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(36px);
+    filter: blur(6px);
+    transition: opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  [data-reveal].in-view { opacity: 1; transform: translateY(0); filter: blur(0); }
 
-/* ==========================================================
-   Image hover
-========================================================== */
-img {
-  transition: transform var(--duration-image) var(--ease-smooth),
-              box-shadow var(--duration-image) var(--ease-smooth);
-}
-
-img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 60px rgba(236, 72, 153, .25);
-}
-
-/* ==========================================================
-   Accessibility: respect reduced-motion preference
-========================================================== */
-@media (prefers-reduced-motion: reduce) {
-  section {
-    animation: none;
+  [data-stagger] > * {
+    opacity: 0;
+    transform: translateY(26px) scale(.97);
+    transition: opacity .7s var(--ease), transform .7s var(--ease);
   }
-  img {
-    transition: none;
+  [data-stagger].in-view > * { opacity: 1; transform: translateY(0) scale(1); }
+  [data-stagger].in-view > *:nth-child(1) { transition-delay: .04s; }
+  [data-stagger].in-view > *:nth-child(2) { transition-delay: .10s; }
+  [data-stagger].in-view > *:nth-child(3) { transition-delay: .16s; }
+  [data-stagger].in-view > *:nth-child(4) { transition-delay: .22s; }
+  [data-stagger].in-view > *:nth-child(5) { transition-delay: .28s; }
+  [data-stagger].in-view > *:nth-child(6) { transition-delay: .34s; }
+  [data-stagger].in-view > *:nth-child(7) { transition-delay: .40s; }
+  [data-stagger].in-view > *:nth-child(8) { transition-delay: .46s; }
+
+  /* =========================================================
+     15. BACK TO TOP
+  ========================================================= */
+  #back-to-top {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50;
+    width: 3.25rem; height: 3.25rem; border-radius: 999px;
+    background: var(--rose); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 16px 32px -10px rgba(214,51,108,.55);
+    opacity: 0; transform: translateY(16px) scale(.9);
+    pointer-events: none;
+    transition: opacity .4s var(--ease), transform .4s var(--ease), background-color .3s var(--ease);
   }
-}
+  #back-to-top.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+  #back-to-top:hover { background: var(--rose-dark); }
+
+  /* =========================================================
+     16. ACCESSIBILITY
+  ========================================================= */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--rose-dark);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    [data-reveal], [data-stagger] > *, .hero-ring, #back-to-top, .masonry-item img {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+  }
+</style>
+</head>
+
+<body class="bg-paper text-ink">
+
+<!-- ================= ICON SPRITE ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-5.5"/><path d="M21 8v6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.3c-1.8-1.2-4-1.8-6.5-1.8A2.3 2.3 0 0 0 3 6.7v10.6a2 2 0 0 1 2-1.8c2.2 0 4.3.6 6 1.8"/><path d="M12 6.3c1.8-1.2 4-1.8 6.5-1.8A2.3 2.3 0 0 1 21 6.7v10.6a2 2 0 0 0-2-1.8c-2.2 0-4.3.6-6 1.8"/><path d="M12 6.3v11"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.2" r="3.2"/><path d="M3.5 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6"/><path d="M15.7 8.5a3 3 0 0 1 0 5.8"/><path d="M14.8 14c2.3.5 4.2 2.6 4.2 6"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 3v18"/><path d="M5 4.2h11l-2.3 3.8L16 11.8H5"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5.2"/><path d="M8.7 12.6 6.7 21l5.3-3 5.3 3-2-8.4"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-8.5"/><path d="M12 12.5c0-3.8 2.8-5.8 6.5-5.8.2 3.8-2.7 5.8-6.5 5.8Z"/><path d="M12 13.2c0-2.8-2.3-5-5.5-5-.2 3.2 2.3 5.2 5.5 5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="3" width="10" height="18"/><rect x="14" y="9" width="6" height="12"/><path d="M7 7h1M11 7h1M7 11h1M11 11h1M7 15h1M11 15h1M17 13h1M17 17h1"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="M2.5 12.3 6.3 8l4 3-3.4 3.4"/><path d="M21.5 12.3 17.7 8l-4 3 3.4 3.4"/><path d="M10.3 11 14 14.7"/><path d="M7 14.4l2.6 2.6a1.8 1.8 0 0 0 2.6 0 1.8 1.8 0 0 0 2.6 0l1.9-1.9"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9.5 18.2h5"/><path d="M10.3 21h3.4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.3 1 2.1h5c0-.8.4-1.6 1-2.1A6 6 0 0 0 12 3Z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16.5v3.5"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.3 8.7 13.2 14 8 16.1l2-5.3 5.3-2.1Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.3 2.4 3.5 5.8 3.5 9s-1.2 6.6-3.5 9c-2.3-2.4-3.5-5.8-3.5-9s1.2-6.6 3.5-9Z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="16.3" cy="14.5" r="1.1"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="2.7"/><path d="M4 5.5v6.2c0 1.5 3.6 2.7 8 2.7s8-1.2 8-2.7V5.5"/><path d="M4 11.7v6.1c0 1.5 3.6 2.7 8 2.7s8-1.2 8-2.7v-6.1"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M19.5 4.3S9.4 3.4 5.6 9.1c-2.7 4-1.4 8.4 1.8 10.3 5.5 2.7 11-.9 11.9-8.3.5-3.3 0-6.8 0-6.8Z"/><path d="M6.5 18.5c3.6-3.6 7.3-7.3 12-12.7"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4.3h8v4.7a4 4 0 0 1-8 0V4.3Z"/><path d="M8 5.2H5.3a2.8 2.8 0 0 0 2.9 4.6"/><path d="M16 5.2h2.7a2.8 2.8 0 0 1-2.9 4.6"/><path d="M12 13v2.8"/><path d="M9 19.7h6"/><path d="M10 16.8h4v2.9h-4z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M4 5h16v11.5H8.2L4 20.5V5Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6l12 12"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M7 9c-2 0-3.5 1.6-3.5 4 0 2 1.3 3.5 3 3.7-.2 1.6-1.4 2.7-1.4 2.7l1.4 1c2-.9 3.3-2.8 3.3-5.4V9H7Z"/><path d="M16 9c-2 0-3.5 1.6-3.5 4 0 2 1.3 3.5 3 3.7-.2 1.6-1.4 2.7-1.4 2.7l1.4 1c2-.9 3.3-2.8 3.3-5.4V9H16Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ================= SCROLL PROGRESS ================= -->
+<div id="scroll-progress-track" aria-hidden="true"><div id="scroll-progress-bar"></div></div>
+
+<!-- ================= NAVBAR ================= -->
+<nav id="navbar" class="fixed top-0 w-full z-50">
+  <div class="max-w-7xl mx-auto h-full px-5 sm:px-8 flex justify-between items-center">
+    <a href="#beranda" class="font-display font-semibold text-lg sm:text-xl tracking-tight">
+      KOHATI <span class="text-blossom-600">Transformatif</span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8 text-sm">
+      <a data-nav-link href="#beranda" class="nav-link">Beranda</a>
+      <a data-nav-link href="#tentang" class="nav-link">Tentang</a>
+      <a data-nav-link href="#jejak" class="nav-link">Jejak</a>
+      <a data-nav-link href="#visi" class="nav-link">Visi</a>
+      <a data-nav-link href="#program" class="nav-link">Program</a>
+      <a data-nav-link href="#galeri" class="nav-link">Galeri</a>
+      <a data-nav-link href="#manifesto" class="nav-link">Manifesto</a>
+    </div>
+
+    <a href="#manifesto" class="hidden lg:inline-flex btn btn-primary !py-3 !px-6 text-sm">
+      Baca Manifesto
+    </a>
+
+    <button id="menuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center text-ink" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobileMenu">
+      <svg id="iconOpen" class="icon"><use href="#i-menu"/></svg>
+      <svg id="iconClose" class="icon hidden"><use href="#i-x"/></svg>
+    </button>
+  </div>
+
+  <div id="mobileMenu" class="lg:hidden hidden flex-col px-5 pb-6 pt-2 text-ink bg-paper/95 backdrop-blur-xl border-t border-line">
+    <a href="#beranda" class="py-3 border-b border-line">Beranda</a>
+    <a href="#tentang" class="py-3 border-b border-line">Tentang</a>
+    <a href="#jejak" class="py-3 border-b border-line">Jejak</a>
+    <a href="#visi" class="py-3 border-b border-line">Visi</a>
+    <a href="#program" class="py-3 border-b border-line">Program</a>
+    <a href="#galeri" class="py-3 border-b border-line">Galeri</a>
+    <a href="#manifesto" class="py-3">Manifesto</a>
+    <a href="#kontak" class="mt-5 btn btn-primary justify-center">Hubungi Tim</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section id="beranda" class="relative min-h-screen flex items-center overflow-hidden pt-32 pb-20 md:pt-24 md:pb-24">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-16 md:gap-10 items-center relative z-10 w-full">
+    <!-- LEFT -->
+    <div class="text-center md:text-left" data-reveal>
+      <span class="chip chip-forest">
+        <svg class="icon-sm"><use href="#i-flag"/></svg>
+        FORUM KOHATI PB HMI 2027–2029
+      </span>
+
+      <h1 class="font-display font-medium leading-[0.95] text-5xl sm:text-7xl md:text-7xl mt-7">
+        <span class="block">TRANSFORMASI</span>
+        <span class="block hero-title-accent">KOHATI</span>
+      </h1>
+
+      <p class="font-display italic text-xl sm:text-2xl text-forest-dark mt-6 leading-snug">
+        Membangun Muslimah Berkualitas<br>Insan Cita.
+      </p>
+
+      <div class="flex items-center justify-center md:justify-start gap-5 sm:gap-8 mt-9">
+        <div><p class="font-display text-2xl sm:text-3xl font-semibold">160+</p><p class="text-xs sm:text-sm text-gray-500 mt-1">Cabang</p></div>
+        <div class="stat-divider"></div>
+        <div><p class="font-display text-2xl sm:text-3xl font-semibold">34</p><p class="text-xs sm:text-sm text-gray-500 mt-1">Provinsi</p></div>
+        <div class="stat-divider"></div>
+        <div><p class="font-display text-2xl sm:text-3xl font-semibold">1000+</p><p class="text-xs sm:text-sm text-gray-500 mt-1">Kader</p></div>
+      </div>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <a href="#manifesto" class="btn btn-primary">
+          Baca Manifesto
+          <svg class="icon-sm"><use href="#i-arrow-right"/></svg>
+        </a>
+        <a href="#program" class="btn btn-outline">
+          Kenali Gagasan
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="flex justify-center md:justify-end" data-reveal>
+      <div class="relative max-w-[500px] w-full">
+        <div class="hero-ring hidden sm:block" aria-hidden="true"></div>
+        <div class="glass rounded-[2.5rem] p-4 sm:p-5 shadow-2xl">
+          <img src="assets/dini.png" class="w-full rounded-[2rem]" alt="Dini Asmiatul Amanah, Calon Ketua Umum KOHATI PB HMI 2027–2029" loading="eager">
+        </div>
+        <div class="hero-credential glass hidden sm:flex items-center gap-3 rounded-2xl p-4 shadow-xl">
+          <div class="icon-tile icon-tile-rose">
+            <svg class="icon"><use href="#i-award"/></svg>
+          </div>
+          <div>
+            <p class="text-xs font-semibold leading-snug">Ketua Bidang Pemberdayaan Umat</p>
+            <p class="text-[11px] text-gray-500">PB HMI 2024–2026</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#tentang" class="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-gray-400 hover:text-forest-dark transition-colors" aria-label="Gulir ke bawah">
+    <span class="eyebrow text-[10px]">Scroll</span>
+    <svg class="icon-sm"><use href="#i-chevron-down"/></svg>
+  </a>
+</section>
+
+<!-- ================= TENTANG KANDIDAT ================= -->
+<section id="tentang" class="py-20 sm:py-28 md:py-36" data-reveal>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid md:grid-cols-2 gap-14 md:gap-20 items-center">
+      <div class="order-2 md:order-1">
+        <img src="assets/profile.jpg" class="rounded-[2.5rem] shadow-xl w-full" alt="Foto profil Dini Asmiatul Amanah" loading="lazy" decoding="async">
+      </div>
+
+      <div class="order-1 md:order-2 text-center md:text-left">
+        <p class="eyebrow text-blossom-600">Tentang Kandidat</p>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">Dini Asmiatul Amanah, M.Pd</h2>
+        <p class="text-forest-dark font-medium mt-2">Calon Ketua Umum KOHATI PB HMI 2027–2029</p>
+
+        <p class="lede mt-7">
+          Aktivis perempuan, akademisi, dan kader HMI yang telah berkiprah pada
+          berbagai jenjang kepemimpinan organisasi. Berkomitmen menghadirkan
+          KOHATI yang lebih profesional, berintegritas, adaptif terhadap
+          perkembangan zaman, dan mampu memberikan dampak nyata.
+        </p>
+
+        <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-8" data-stagger>
+          <span class="chip chip-rose"><svg class="icon-sm"><use href="#i-cap"/></svg>Akademisi</span>
+          <span class="chip chip-forest"><svg class="icon-sm"><use href="#i-compass"/></svg>Peneliti</span>
+          <span class="chip chip-rose"><svg class="icon-sm"><use href="#i-users"/></svg>Aktivis Perempuan</span>
+          <span class="chip chip-forest"><svg class="icon-sm"><use href="#i-flag"/></svg>Pemimpin Organisasi</span>
+          <span class="chip chip-rose"><svg class="icon-sm"><use href="#i-award"/></svg>Magister Pendidikan</span>
+        </div>
+
+        <blockquote class="mt-9 border-l-2 border-blossom-500 pl-5 text-left">
+          <p class="font-display italic text-lg sm:text-xl text-blossom-700 leading-relaxed">
+            "Peradaban besar lahir dari perempuan yang diberi ruang untuk memimpin."
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JEJAK KEPEMIMPINAN ================= -->
+<section id="jejak" class="py-20 sm:py-28 md:py-36 bg-mist" data-reveal>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-16 md:mb-20">
+      <p class="eyebrow text-blossom-600">Jejak Kepemimpinan</p>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">Perjalanan yang Membentuk Arah</h2>
+      <p class="lede mt-5 max-w-xl mx-auto">Sepuluh tahun langkah kecil yang perlahan membentuk perjalanan kepemimpinan besar.</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative max-w-4xl mx-auto">
+      <div class="timeline-line"></div>
+
+      <div class="space-y-10 md:space-y-16">
+        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">1</div></div>
+          <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-blossom-600">2017</h3>
+            <p class="mt-2 text-gray-600 leading-relaxed">Bendahara Umum HMI Komisariat FPIPS UPI.</p>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+
+        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">2</div></div>
+          <div class="hidden md:block"></div>
+          <div class="pl-16 md:pl-0 md:pl-14">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-forest-dark">2018</h3>
+            <p class="mt-2 text-gray-600 leading-relaxed">Ketua Umum HMI Komisariat FPIPS UPI.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">3</div></div>
+          <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-blossom-600">2021</h3>
+            <p class="mt-2 text-gray-600 leading-relaxed">Ketua Umum KOHATI Cabang Bandung.</p>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+
+        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">4</div></div>
+          <div class="hidden md:block"></div>
+          <div class="pl-16 md:pl-0 md:pl-14">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-forest-dark">2024</h3>
+            <p class="mt-2 text-gray-600 leading-relaxed">Ketua Bidang Pemberdayaan Umat PB HMI.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">5</div></div>
+          <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-blossom-600">2027</h3>
+            <p class="mt-2 text-gray-600 leading-relaxed">Calon Ketua Umum KOHATI PB HMI.</p>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bukti Kepemimpinan counters -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-20 md:mt-24" data-stagger>
+      <div class="card text-center p-6 sm:p-9">
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-blossom-600 counter" data-target="10" data-suffix="+">0</p>
+        <p class="mt-2 text-sm text-gray-500">Tahun Pengabdian</p>
+      </div>
+      <div class="card text-center p-6 sm:p-9">
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-forest-dark counter" data-target="25" data-suffix="+">0</p>
+        <p class="mt-2 text-sm text-gray-500">Forum Nasional</p>
+      </div>
+      <div class="card text-center p-6 sm:p-9">
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-blossom-600 counter" data-target="60" data-suffix="+">0</p>
+        <p class="mt-2 text-sm text-gray-500">Cabang Dikunjungi</p>
+      </div>
+      <div class="card text-center p-6 sm:p-9">
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-forest-dark counter" data-target="1500" data-suffix="+">0</p>
+        <p class="mt-2 text-sm text-gray-500">Kader Dibina</p>
+      </div>
+    </div>
+
+    <!-- Pengakuan -->
+    <div class="mt-16 md:mt-20">
+      <p class="eyebrow text-center text-forest-600 mb-8">Pengakuan</p>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" data-stagger>
+        <div class="card p-5 sm:p-7 flex flex-col gap-3">
+          <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-trophy"/></svg></div>
+          <h3 class="font-semibold text-sm leading-snug">Runner Up Puteri Wisata Indonesia</h3>
+          <p class="text-xs text-gray-500">2021</p>
+        </div>
+        <div class="card p-5 sm:p-7 flex flex-col gap-3">
+          <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-award"/></svg></div>
+          <h3 class="font-semibold text-sm leading-snug">Puteri Wisata Jawa Barat</h3>
+          <p class="text-xs text-gray-500">2020</p>
+        </div>
+        <div class="card p-5 sm:p-7 flex flex-col gap-3">
+          <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-book"/></svg></div>
+          <h3 class="font-semibold text-sm leading-snug">Publikasi Scopus</h3>
+          <p class="text-xs text-gray-500">Q3 International Journal</p>
+        </div>
+        <div class="card p-5 sm:p-7 flex flex-col gap-3">
+          <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-trophy"/></svg></div>
+          <h3 class="font-semibold text-sm leading-snug">Peserta Terbaik LK KOHATI</h3>
+          <p class="text-xs text-gray-500">Semarang</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISI BESAR ================= -->
+<section id="visi" class="py-20 sm:py-28 md:py-36" data-reveal>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-16 md:mb-20">
+      <p class="eyebrow text-forest-600">Visi Besar</p>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">Tiga Pilar Transformasi</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 md:gap-8" data-stagger>
+      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, var(--rose), var(--rose-dark));">
+        <div class="icon-xl"><svg class="icon-xl"><use href="#i-sprout"/></svg></div>
+        <h3 class="font-display text-2xl sm:text-3xl font-semibold mt-7">Elevating Development</h3>
+        <ul class="mt-6 space-y-3 opacity-95">
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Penguatan kaderisasi</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Kepemimpinan</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Budaya intelektual</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Pembinaan kader</li>
+        </ul>
+      </div>
+
+      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, var(--forest), var(--forest-dark));">
+        <div class="icon-xl"><svg class="icon-xl"><use href="#i-building"/></svg></div>
+        <h3 class="font-display text-2xl sm:text-3xl font-semibold mt-7">Organizational Transformation</h3>
+        <ul class="mt-6 space-y-3 opacity-95">
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Digitalisasi</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Database nasional</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Tata kelola</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Monitoring</li>
+        </ul>
+      </div>
+
+      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, #262626, var(--ink));">
+        <div class="icon-xl text-blossom-400"><svg class="icon-xl"><use href="#i-handshake"/></svg></div>
+        <h3 class="font-display text-2xl sm:text-3xl font-semibold mt-7">Collaboration &amp; Impact</h3>
+        <ul class="mt-6 space-y-3 opacity-95">
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Kemitraan strategis</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Women empowerment</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Pengabdian</li>
+          <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Global partnership</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROGRAM PRIORITAS ================= -->
+<section id="program" class="py-20 sm:py-28 md:py-36 bg-mist" data-reveal>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-16 md:mb-20">
+      <p class="eyebrow text-blossom-600">Program Prioritas</p>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">8 Program untuk KOHATI Baru</h2>
+      <p class="lede mt-5 max-w-xl mx-auto">Gagasan besar diterjemahkan menjadi langkah konkret dan terukur.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6" data-stagger>
+      <div class="card p-6 sm:p-7">
+        <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-bulb"/></svg></div>
+        <h3 class="font-semibold text-base mt-6">KOHATI Transformasi</h3>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Reformasi arah gerak KOHATI menuju organisasi yang lebih adaptif dan berdampak.</p>
+      </div>
+      <div class="card p-6 sm:p-7">
+        <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-monitor"/></svg></div>
+        <h3 class="font-semibold text-base mt-6">Digitalisasi &amp; Development</h3>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Sistem digital untuk kaderisasi, administrasi, dan pelaporan yang efisien.</p>
+      </div>
+      <div class="card p-6 sm:p-7">
+        <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-compass"/></svg></div>
+        <h3 class="font-semibold text-base mt-6">Research &amp; Policy Center</h3>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Pusat kajian dan rekomendasi kebijakan berbasis riset untuk isu perempuan dan umat.</p>
+      </div>
+      <div class="card p-6 sm:p-7">
+        <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-globe"/></svg></div>
+        <h3 class="font-semibold text-base mt-6">Society Global Partnership</h3>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Memperluas kemitraan strategis dengan lembaga nasional dan internasional.</p>
+      </div>
+      <div class="card p-6 sm:p-7">
+        <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-wallet"/></svg></div>
+        <h3 class="font-semibold text-base mt-6">Women Economic Empowerment</h3>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Pemberdayaan ekonomi bagi kader dan perempuan di lingkungan cabang.</p>
+      </div>
+      <div class="card p-6 sm:p-7">
+        <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-database"/></svg></div>
+        <h3 class="font-semibold text-base mt-6">KOHATI Data Center</h3>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Basis data nasional untuk memetakan potensi dan kebutuhan kader di 34 provinsi.</p>
+      </div>
+      <div class="card p-6 sm:p-7">
+        <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-leaf"/></svg></div>
+        <h3 class="font-semibold text-base mt-6">Green Movement</h3>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Gerakan lingkungan berkelanjutan yang digerakkan oleh kader di setiap cabang.</p>
+      </div>
+      <div class="card p-6 sm:p-7">
+        <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-cap"/></svg></div>
+        <h3 class="font-semibold text-base mt-6">Scholarship</h3>
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Beasiswa dan dukungan pendidikan bagi kader berprestasi dari seluruh cabang.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="galeri" class="py-20 sm:py-28 md:py-36" data-reveal>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-14 md:mb-16">
+      <p class="eyebrow text-forest-600">Gallery</p>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">Jejak Perjalanan</h2>
+      <p class="lede mt-5 max-w-xl mx-auto">Dokumentasi pengabdian, kaderisasi, dan kolaborasi.</p>
+    </div>
+
+    <div class="masonry">
+      <div class="masonry-item"><img src="assets/gallery/1.jpeg" alt="Dokumentasi kegiatan kaderisasi KOHATI 1" loading="lazy" decoding="async"></div>
+      <div class="masonry-item"><img src="assets/gallery/2.jpeg" alt="Dokumentasi kegiatan kaderisasi KOHATI 2" loading="lazy" decoding="async"></div>
+      <div class="masonry-item"><img src="assets/gallery/3.jpeg" alt="Dokumentasi kegiatan kaderisasi KOHATI 3" loading="lazy" decoding="async"></div>
+      <div class="masonry-item"><img src="assets/gallery/4.jpeg" alt="Dokumentasi kegiatan kaderisasi KOHATI 4" loading="lazy" decoding="async"></div>
+      <div class="masonry-item"><img src="assets/gallery/5.jpeg" alt="Dokumentasi kegiatan kaderisasi KOHATI 5" loading="lazy" decoding="async"></div>
+      <div class="masonry-item"><img src="assets/gallery/6.jpeg" alt="Dokumentasi kegiatan kaderisasi KOHATI 6" loading="lazy" decoding="async"></div>
+      <div class="masonry-item"><img src="assets/gallery/7.jpeg" alt="Dokumentasi kegiatan kaderisasi KOHATI 7" loading="lazy" decoding="async"></div>
+      <div class="masonry-item"><img src="assets/gallery/8.png" alt="Dokumentasi kegiatan kaderisasi KOHATI 8" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MANIFESTO ("Mengapa Saya Maju") ================= -->
+<section id="manifesto" class="manifesto-section py-24 sm:py-32 md:py-40 relative overflow-hidden" data-reveal>
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 relative">
+    <p class="eyebrow text-blossom-300">Mengapa Saya Maju</p>
+
+    <svg class="icon-xl manifesto-quote-mark mt-8" style="width:3.5rem;height:3.5rem;"><use href="#i-quote"/></svg>
+
+    <h2 class="font-display manifesto-heading text-3xl sm:text-5xl md:text-6xl font-medium mt-6">
+      Transformasi bukan berarti mengubah jati diri organisasi, melainkan
+      memperkuat nilai perjuangan agar semakin memberi manfaat.
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8 md:gap-14 mt-16 text-white/85 leading-8">
+      <p>
+        Sepuluh tahun mengabdi di HMI dan KOHATI mengajarkan saya bahwa
+        organisasi ini menyimpan potensi jauh lebih besar dari yang berhasil
+        kita wujudkan. Saya maju bukan karena merasa paling mampu, tetapi
+        karena resah melihat energi kader yang belum tersalurkan secara
+        maksimal.
+      </p>
+      <p>
+        Kaderisasi kita masih berjalan sendiri-sendiri, data kita tersebar
+        tanpa arah, dan banyak gagasan baik berhenti di ruang diskusi. KOHATI
+        membutuhkan sistem yang menghubungkan lebih dari 160 cabang di 34
+        provinsi, bukan sekadar semangat yang menyala musiman.
+      </p>
+    </div>
+
+    <p class="text-white/85 leading-8 mt-6 max-w-2xl">
+      Saya membayangkan KOHATI yang bekerja dengan data, berbicara dengan
+      riset, dan hadir nyata di tengah masyarakat — tanpa kehilangan ruh
+      perjuangannya sebagai rumah bagi Muslimah Berkualitas Insan Cita.
+    </p>
+
+    <p class="font-display italic text-blossom-200 mt-10 text-lg">
+      — Dini Asmiatul Amanah, Calon Ketua Umum KOHATI PB HMI 2027–2029
+    </p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-section py-24 sm:py-32 md:py-40 text-white" data-reveal>
+  <div class="max-w-4xl mx-auto text-center px-5 sm:px-8">
+    <h2 class="font-display text-4xl sm:text-6xl md:text-7xl font-medium leading-[1.05]">
+      Mari Bersama<br>Mewujudkan Transformasi KOHATI
+    </h2>
+
+    <p class="text-base sm:text-xl opacity-90 mt-8 sm:mt-10 max-w-xl mx-auto">
+      Satu suara, satu langkah, untuk KOHATI yang lebih profesional, adaptif,
+      dan berdampak.
+    </p>
+
+    <div class="mt-10 sm:mt-14 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-5">
+      <a href="#manifesto" class="btn btn-white">
+        Baca Manifesto
+        <svg class="icon-sm"><use href="#i-arrow-right"/></svg>
+      </a>
+      <a href="#kontak" class="btn btn-ghost-light">
+        Hubungi Tim
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="kontak" class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-12 text-center sm:text-left">
+      <div>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold">
+          KOHATI <span class="text-blossom-400">Transformatif</span>
+        </h2>
+        <p class="text-gray-400 mt-6 leading-7">
+          Membangun Muslimah Berkualitas Insan Cita melalui transformasi
+          organisasi yang modern, profesional, dan berdampak.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg">Menu</h3>
+        <ul class="space-y-3 mt-6 text-gray-400">
+          <li><a href="#beranda" class="hover:text-white transition-colors">Beranda</a></li>
+          <li><a href="#tentang" class="hover:text-white transition-colors">Tentang</a></li>
+          <li><a href="#program" class="hover:text-white transition-colors">Program</a></li>
+          <li><a href="#jejak" class="hover:text-white transition-colors">Jejak</a></li>
+          <li><a href="#galeri" class="hover:text-white transition-colors">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg">Ikuti</h3>
+        <div class="flex gap-4 mt-6 justify-center sm:justify-start">
+          <a href="#" class="w-12 h-12 rounded-full bg-blossom-500 flex items-center justify-center hover:bg-blossom-600 transition-colors" aria-label="Instagram TRANSFORMASI KOHATI">
+            <svg class="icon"><use href="#i-instagram"/></svg>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-full bg-forest-600 flex items-center justify-center hover:bg-forest-700 transition-colors" aria-label="WhatsApp Tim TRANSFORMASI KOHATI">
+            <svg class="icon"><use href="#i-message"/></svg>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-full bg-blossom-500 flex items-center justify-center hover:bg-blossom-600 transition-colors" aria-label="Email Tim TRANSFORMASI KOHATI">
+            <svg class="icon"><use href="#i-mail"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-white/10 my-12">
+
+    <p class="text-center text-gray-500 text-sm">
+      © 2026 TRANSFORMASI KOHATI<br>Yakin Usaha Sampai.
+    </p>
+  </div>
+</footer>
+
+<!-- ================= BACK TO TOP ================= -->
+<a href="#beranda" id="back-to-top" aria-label="Kembali ke atas">
+  <svg class="icon"><use href="#i-arrow-up"/></svg>
+</a>
+
+<script>
+  /* =========================================================
+     MODULE: Scroll progress bar
+  ========================================================= */
+  function initScrollProgress() {
+    const bar = document.getElementById('scroll-progress-bar');
+    const update = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  /* =========================================================
+     MODULE: Navbar — solid on scroll + active section link
+  ========================================================= */
+  function initNavbar() {
+    const nav = document.getElementById('navbar');
+
+    const onScroll = () => {
+      nav.classList.toggle('is-scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const links = document.querySelectorAll('[data-nav-link]');
+    const sections = Array.from(links)
+      .map((link) => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      links.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  /* =========================================================
+     MODULE: Mobile menu
+  ========================================================= */
+  function initMobileMenu() {
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    const openMenu = () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeMenu = () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.contains('flex') ? closeMenu() : openMenu();
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  }
+
+  /* =========================================================
+     MODULE: Animated counters (supports custom suffix)
+  ========================================================= */
+  function animateCounter(el) {
+    const target = +el.getAttribute('data-target');
+    const suffix = el.hasAttribute('data-suffix') ? el.getAttribute('data-suffix') : '+';
+    const duration = 1400;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target) + (progress >= 1 ? suffix : '');
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  /* =========================================================
+     MODULE: Scroll reveal (+ triggers stagger & counters)
+  ========================================================= */
+  function initScrollReveal() {
+    const revealTargets = document.querySelectorAll('[data-reveal], [data-stagger]');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in-view');
+
+          entry.target.querySelectorAll('.counter').forEach(animateCounter);
+          if (entry.target.classList.contains('counter')) animateCounter(entry.target);
+
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -80px 0px' }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+  }
+
+  /* =========================================================
+     MODULE: Light parallax on hero blobs
+  ========================================================= */
+  function initParallax() {
+    const blobs = document.querySelectorAll('.hero-blob');
+    if (!blobs.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      blobs.forEach((blob, i) => {
+        blob.style.transform = `translateY(${y * (i === 0 ? 0.08 : 0.05)}px)`;
+      });
+    }, { passive: true });
+  }
+
+  /* =========================================================
+     MODULE: Back to top button
+  ========================================================= */
+  function initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+  }
+
+  initScrollProgress();
+  initNavbar();
+  initMobileMenu();
+  initScrollReveal();
+  initParallax();
+  initBackToTop();
+</script>
+
+</body>
+</html>
