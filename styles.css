@@ -1,1 +1,52 @@
-keep
+/* ==========================================================
+   Design tokens
+========================================================== */
+:root {
+  --color-pink: #ec4899;
+  --ease-smooth: cubic-bezier(.22, 1, .36, 1);
+  --duration-section: .8s;
+  --duration-image: .4s;
+}
+
+/* ==========================================================
+   Section fade-in
+========================================================== */
+section {
+  animation: fade var(--duration-section) var(--ease-smooth);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================
+   Image hover
+========================================================== */
+img {
+  transition: transform var(--duration-image) var(--ease-smooth),
+              box-shadow var(--duration-image) var(--ease-smooth);
+}
+
+img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(236, 72, 153, .25);
+}
+
+/* ==========================================================
+   Accessibility: respect reduced-motion preference
+========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  section {
+    animation: none;
+  }
+  img {
+    transition: none;
+  }
+}
