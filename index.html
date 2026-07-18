@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="044bbdf">
+<meta name="theme-color" content="#1C86E0">
 <meta name="description" content="Dini Asmiatul Amanah, M.Pd — Calon Ketua Umum KOHATI PB HMI 2027–2029. Transformasi kaderisasi, organisasi, kepemimpinan, kolaborasi, dan dampak.">
 <title>TRANSFORMASI KOHATI — Dini Asmiatul Amanah</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: {
       extend: {
         colors: {
-          blossom: { 50:'#FDF1F5', 100:'#FBE0EA', 200:'#F5C1D6', 300:'#EB93B7', 400:'#E0659A', 500:'#D6336C', 600:'#B92457', 700:'#8F1C44', 800:'#6B1533', 900:'#4A0F24' },
-          forest:  { 50:'#EFF6EE', 100:'#DCEBDA', 200:'#B7D6B4', 300:'#8FBE8B', 400:'#59995A', 500:'#2F6B3D', 600:'#255530', 700:'#1D4426', 800:'#15331B', 900:'#0E2212' },
-          paper: '#FFFDF9',
-          mist: '#F4F1EB',
-          ink: '#1A1A1B',
+          sky:   { 50:'#EFF8FF', 100:'#DCEFFF', 200:'#B3DDFF', 300:'#7EC4FF', 400:'#3FA3F5', 500:'#1C86E0', 600:'#0E6ACB', 700:'#0C54A3', 800:'#0A3F7A', 900:'#082C55', dark:'#0A3F7A' },
+          azure: { 50:'#EEF3FC', 100:'#DCE7F8', 200:'#B7CEEF', 300:'#8AACDF', 400:'#5885C7', 500:'#33619F', 600:'#284D80', 700:'#1F3C66', 800:'#162B4B', 900:'#0E1C32', dark:'#1F3C66' },
+          paper: '#F8FBFF',
+          mist: '#EAF2FB',
+          ink: '#12202B',
         },
         fontFamily: {
           display: ['"Poppins"', 'sans-serif'],
@@ -37,14 +37,16 @@
      1. DESIGN TOKENS
   ========================================================= */
   :root {
-    --rose: #D6336C;
-    --rose-dark: #8F1C44;
-    --forest: #2F6B3D;
-    --forest-dark: #1D4426;
-    --ink: #1A1A1B;
-    --paper: #FFFDF9;
-    --mist: #F4F1EB;
-    --line: #E7E1D6;
+    --sky: #1C86E0;
+    --sky-dark: #0A3F7A;
+    --sky-50: #EFF8FF;
+    --azure: #284D80;
+    --azure-dark: #1F3C66;
+    --azure-50: #EEF3FC;
+    --ink: #12202B;
+    --paper: #F8FBFF;
+    --mist: #EAF2FB;
+    --line: #DCE7F5;
     --ease: cubic-bezier(.22, 1, .36, 1);
     --nav-h: 84px;
   }
@@ -65,7 +67,7 @@
 
   section[id] { scroll-margin-top: var(--nav-h); }
 
-  ::selection { background: var(--rose); color: #fff; }
+  ::selection { background: var(--sky); color: #fff; }
 
   /* =========================================================
      3. ICON SYSTEM (sprite is styled once, used everywhere)
@@ -79,9 +81,10 @@
 
   /* =========================================================
      4. TYPOGRAPHY
+     (font-display is defined once, via Tailwind's config above —
+     no conflicting override here, so Poppins always renders as
+     intended instead of silently falling back to an unloaded font)
   ========================================================= */
-  .font-display { font-family: 'Fraunces', serif; }
-
   .eyebrow {
     font-family: 'Plus Jakarta Sans', sans-serif;
     text-transform: uppercase;
@@ -91,6 +94,14 @@
   }
 
   .lede { line-height: 1.85; color: #4B4B4E; }
+
+  /* Fluid type scale: sizes flow continuously between breakpoints
+     instead of jumping at each Tailwind stop, so headings scale
+     smoothly across every screen from small phones to wide desktops. */
+  .fluid-h1     { font-size: clamp(2.75rem, 4.5vw + 1.6rem, 5.25rem); line-height: .95; }
+  .fluid-h1-lg  { font-size: clamp(2.4rem, 6vw + 1rem, 4.75rem); line-height: 1.05; }
+  .fluid-h2     { font-size: clamp(1.9rem, 2.6vw + 1.1rem, 3.1rem); }
+  .fluid-h2-lg  { font-size: clamp(2.1rem, 4vw + 1rem, 4rem); }
 
   /* =========================================================
      5. BUTTONS
@@ -103,22 +114,23 @@
     font-weight: 600;
     padding: 1rem 2rem;
     border-radius: 999px;
-    transition: transform .35s var(--ease), box-shadow .35s var(--ease), background-color .35s var(--ease), color .35s var(--ease);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease), background-color .4s var(--ease), color .4s var(--ease);
     white-space: nowrap;
   }
   .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0) scale(.98); }
   .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
-  .btn-primary { background: var(--rose); color: #fff; box-shadow: 0 14px 30px -10px rgba(214,51,108,.55); }
-  .btn-primary:hover { background: var(--rose-dark); box-shadow: 0 18px 36px -8px rgba(214,51,108,.6); }
+  .btn-primary { background: var(--sky); color: #fff; box-shadow: 0 14px 30px -10px rgba(28,134,224,.55); }
+  .btn-primary:hover { background: var(--sky-dark); box-shadow: 0 18px 36px -8px rgba(28,134,224,.6); }
 
-  .btn-outline { border: 1.5px solid var(--forest); color: var(--forest-dark); }
-  .btn-outline:hover { background: var(--forest); color: #fff; }
+  .btn-outline { border: 1.5px solid var(--azure); color: var(--azure-dark); }
+  .btn-outline:hover { background: var(--azure); color: #fff; }
 
   .btn-ghost-light { border: 1.5px solid rgba(255,255,255,.55); color: #fff; }
-  .btn-ghost-light:hover { background: #fff; color: var(--rose-dark); }
+  .btn-ghost-light:hover { background: #fff; color: var(--sky-dark); }
 
-  .btn-white { background: #fff; color: var(--rose-dark); box-shadow: 0 14px 30px -10px rgba(0,0,0,.35); }
+  .btn-white { background: #fff; color: var(--sky-dark); box-shadow: 0 14px 30px -10px rgba(0,0,0,.35); }
 
   /* =========================================================
      6. GLASS / CHIP / CARD COMPONENTS
@@ -141,16 +153,16 @@
     border: 1.5px solid var(--line);
     background: #fff;
   }
-  .chip-rose { border-color: #F0BCD1; color: var(--rose-dark); }
-  .chip-forest { border-color: #C4DEC5; color: var(--forest-dark); }
+  .chip-sky { border-color: #BFE0FF; color: var(--sky-dark); }
+  .chip-azure { border-color: #C7D9F2; color: var(--azure-dark); }
 
   .card {
     background: #fff;
     border: 1px solid var(--line);
     border-radius: 1.75rem;
-    transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+    transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
   }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -20px rgba(26,26,27,.18); border-color: transparent; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -20px rgba(18,32,43,.18); border-color: transparent; }
 
   .icon-tile {
     width: 3.25rem;
@@ -160,8 +172,8 @@
     align-items: center;
     justify-content: center;
   }
-  .icon-tile-rose { background: var(--blossom-50, #FDF1F5); color: var(--rose-dark); }
-  .icon-tile-forest { background: #EFF6EE; color: var(--forest-dark); }
+  .icon-tile-sky { background: var(--sky-50); color: var(--sky-dark); }
+  .icon-tile-azure { background: var(--azure-50); color: var(--azure-dark); }
 
   /* =========================================================
      7. NAVBAR
@@ -173,11 +185,11 @@
     transition: background-color .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
   }
   #navbar.is-scrolled {
-    background: rgba(255,253,249,.85);
+    background: rgba(248,251,255,.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom-color: var(--line);
-    box-shadow: 0 10px 30px -20px rgba(26,26,27,.25);
+    box-shadow: 0 10px 30px -20px rgba(18,32,43,.25);
   }
 
   .nav-link { position: relative; color: #4B4B4E; font-weight: 500; padding-bottom: 4px; }
@@ -185,19 +197,31 @@
     content: '';
     position: absolute; left: 0; bottom: 0;
     width: 0; height: 2px;
-    background: var(--rose);
-    transition: width .3s var(--ease);
+    background: var(--sky);
+    transition: width .35s var(--ease);
   }
   .nav-link:hover { color: var(--ink); }
   .nav-link:hover::after { width: 100%; }
-  .nav-link.active { color: var(--rose-dark); }
+  .nav-link.active { color: var(--sky-dark); }
   .nav-link.active::after { width: 100%; }
+
+  /* Mobile menu: animated with height + fade instead of an abrupt
+     hidden/flex swap, so opening and closing feels smooth. */
+  #mobileMenu {
+    display: flex;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: max-height .5s var(--ease), opacity .35s var(--ease), transform .35s var(--ease);
+  }
+  #mobileMenu.open { max-height: 28rem; opacity: 1; transform: translateY(0); }
 
   /* =========================================================
      8. SCROLL PROGRESS BAR
   ========================================================= */
   #scroll-progress-track { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(0,0,0,.06); z-index: 60; }
-  #scroll-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--rose), var(--forest)); transition: width .1s linear; }
+  #scroll-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--sky), var(--azure-dark)); transition: width .12s linear; }
 
   /* =========================================================
      9. HERO
@@ -208,12 +232,13 @@
     filter: blur(90px);
     opacity: .35;
     pointer-events: none;
+    will-change: transform;
   }
-  .hero-blob-1 { width: 520px; height: 520px; top: -160px; left: -140px; background: var(--rose); }
-  .hero-blob-2 { width: 560px; height: 560px; bottom: -200px; right: -160px; background: var(--forest); opacity: .28; }
+  .hero-blob-1 { width: 520px; height: 520px; top: -160px; left: -140px; background: var(--sky); }
+  .hero-blob-2 { width: 560px; height: 560px; bottom: -200px; right: -160px; background: var(--azure); opacity: .28; }
 
   .hero-title-accent {
-    background: linear-gradient(100deg, var(--rose) 0%, var(--rose-dark) 45%, var(--forest-dark) 100%);
+    background: linear-gradient(100deg, var(--sky) 0%, var(--sky-dark) 45%, var(--azure-dark) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -222,9 +247,9 @@
   .hero-ring {
     position: absolute;
     inset: -22px;
-    border: 1.5px dashed rgba(47,107,61,.35);
+    border: 1.5px dashed rgba(40,77,128,.35);
     border-radius: 2.5rem;
-    animation: spin-slow 40s linear infinite;
+    animation: spin-slow 44s linear infinite;
   }
   @keyframes spin-slow { to { transform: rotate(360deg); } }
 
@@ -245,7 +270,7 @@
     top: 0; bottom: 0;
     left: 1.15rem;
     width: 2px;
-    background: linear-gradient(to bottom, var(--rose), var(--forest));
+    background: linear-gradient(to bottom, var(--sky), var(--azure));
   }
   @media (min-width: 768px) {
     .timeline-line { left: 50%; transform: translateX(-50%); }
@@ -255,12 +280,13 @@
     width: 2.4rem; height: 2.4rem;
     border-radius: 999px;
     background: #fff;
-    border: 2px solid var(--rose);
+    border: 2px solid var(--sky);
     display: flex; align-items: center; justify-content: center;
-    color: var(--rose-dark);
-    box-shadow: 0 8px 20px -6px rgba(214,51,108,.35);
+    color: var(--sky-dark);
+    box-shadow: 0 8px 20px -6px rgba(28,134,224,.35);
+    transition: transform .3s var(--ease);
   }
-  .timeline-item:nth-child(even) .timeline-dot { border-color: var(--forest); color: var(--forest-dark); box-shadow: 0 8px 20px -6px rgba(47,107,61,.35); }
+  .timeline-item:nth-child(even) .timeline-dot { border-color: var(--azure); color: var(--azure-dark); box-shadow: 0 8px 20px -6px rgba(40,77,128,.35); }
 
   /* =========================================================
      11. GALLERY MASONRY
@@ -274,11 +300,11 @@
     margin-bottom: 1rem;
     border-radius: 1.5rem;
     overflow: hidden;
-    box-shadow: 0 20px 40px -24px rgba(26,26,27,.35);
+    box-shadow: 0 20px 40px -24px rgba(18,32,43,.35);
   }
   @media (min-width: 768px) { .masonry-item { margin-bottom: 1.25rem; } }
 
-  .masonry-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+  .masonry-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s var(--ease); }
   .masonry-item:hover img { transform: scale(1.06); }
 
   .masonry-item:nth-child(4n+1) img { aspect-ratio: 3 / 4; }
@@ -291,18 +317,30 @@
   ========================================================= */
   .manifesto-section {
     background:
-      radial-gradient(60% 60% at 85% 0%, rgba(214,51,108,.35), transparent 60%),
-      radial-gradient(50% 50% at 0% 100%, rgba(214,51,108,.12), transparent 60%),
-      var(--forest-dark);
+      radial-gradient(60% 60% at 85% 0%, rgba(28,134,224,.35), transparent 60%),
+      radial-gradient(50% 50% at 0% 100%, rgba(28,134,224,.12), transparent 60%),
+      var(--azure-dark);
     color: #fff;
   }
   .manifesto-quote-mark { color: rgba(255,255,255,.22); }
   .manifesto-heading { line-height: 1.28; }
 
   /* =========================================================
-     13. FINAL CTA
+     13. FINAL CTA — echoes the sky-blue reference banner with
+     soft diagonal facets instead of a flat gradient.
   ========================================================= */
-  .cta-section { background: linear-gradient(120deg, var(--rose) 0%, var(--rose-dark) 45%, var(--forest-dark) 100%); }
+  .cta-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, var(--sky) 0%, var(--sky-dark) 45%, var(--azure-dark) 100%);
+  }
+  .facet {
+    position: absolute;
+    background: #fff;
+    pointer-events: none;
+  }
+  .facet-1 { width: 65%; height: 150%; top: -25%; right: -12%; opacity: .10; clip-path: polygon(35% 0, 100% 0, 100% 100%, 65% 100%); }
+  .facet-2 { width: 45%; height: 130%; bottom: -15%; left: -18%; opacity: .07; clip-path: polygon(0 15%, 55% 0, 55% 100%, 0 100%); }
 
   /* =========================================================
      14. SCROLL REVEAL + STAGGER ANIMATION
@@ -311,24 +349,24 @@
     opacity: 0;
     transform: translateY(36px);
     filter: blur(6px);
-    transition: opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease);
+    transition: opacity 1s var(--ease), transform 1s var(--ease), filter 1s var(--ease);
   }
   [data-reveal].in-view { opacity: 1; transform: translateY(0); filter: blur(0); }
 
   [data-stagger] > * {
     opacity: 0;
     transform: translateY(26px) scale(.97);
-    transition: opacity .7s var(--ease), transform .7s var(--ease);
+    transition: opacity .75s var(--ease), transform .75s var(--ease);
   }
   [data-stagger].in-view > * { opacity: 1; transform: translateY(0) scale(1); }
   [data-stagger].in-view > *:nth-child(1) { transition-delay: .04s; }
-  [data-stagger].in-view > *:nth-child(2) { transition-delay: .10s; }
-  [data-stagger].in-view > *:nth-child(3) { transition-delay: .16s; }
-  [data-stagger].in-view > *:nth-child(4) { transition-delay: .22s; }
-  [data-stagger].in-view > *:nth-child(5) { transition-delay: .28s; }
-  [data-stagger].in-view > *:nth-child(6) { transition-delay: .34s; }
-  [data-stagger].in-view > *:nth-child(7) { transition-delay: .40s; }
-  [data-stagger].in-view > *:nth-child(8) { transition-delay: .46s; }
+  [data-stagger].in-view > *:nth-child(2) { transition-delay: .09s; }
+  [data-stagger].in-view > *:nth-child(3) { transition-delay: .14s; }
+  [data-stagger].in-view > *:nth-child(4) { transition-delay: .19s; }
+  [data-stagger].in-view > *:nth-child(5) { transition-delay: .24s; }
+  [data-stagger].in-view > *:nth-child(6) { transition-delay: .29s; }
+  [data-stagger].in-view > *:nth-child(7) { transition-delay: .34s; }
+  [data-stagger].in-view > *:nth-child(8) { transition-delay: .39s; }
 
   /* =========================================================
      15. BACK TO TOP
@@ -336,21 +374,21 @@
   #back-to-top {
     position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50;
     width: 3.25rem; height: 3.25rem; border-radius: 999px;
-    background: var(--rose); color: #fff;
+    background: var(--sky); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 16px 32px -10px rgba(214,51,108,.55);
+    box-shadow: 0 16px 32px -10px rgba(28,134,224,.55);
     opacity: 0; transform: translateY(16px) scale(.9);
     pointer-events: none;
     transition: opacity .4s var(--ease), transform .4s var(--ease), background-color .3s var(--ease);
   }
   #back-to-top.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-  #back-to-top:hover { background: var(--rose-dark); }
+  #back-to-top:hover { background: var(--sky-dark); }
 
   /* =========================================================
      16. ACCESSIBILITY
   ========================================================= */
   a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--rose-dark);
+    outline: 2px solid var(--sky-dark);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -359,7 +397,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    [data-reveal], [data-stagger] > *, .hero-ring, #back-to-top, .masonry-item img {
+    [data-reveal], [data-stagger] > *, .hero-ring, #back-to-top, .masonry-item img, #mobileMenu {
       transition: none !important;
       animation: none !important;
       opacity: 1 !important;
@@ -411,7 +449,7 @@
 <nav id="navbar" class="fixed top-0 w-full z-50">
   <div class="max-w-7xl mx-auto h-full px-5 sm:px-8 flex justify-between items-center">
     <a href="#beranda" class="font-display font-semibold text-lg sm:text-xl tracking-tight">
-      KOHATI <span class="text-blossom-600">Transformatif</span>
+      KOHATI <span class="text-sky-600">Transformatif</span>
     </a>
 
     <div class="hidden lg:flex items-center gap-8 text-sm">
@@ -434,7 +472,7 @@
     </button>
   </div>
 
-  <div id="mobileMenu" class="lg:hidden hidden flex-col px-5 pb-6 pt-2 text-ink bg-paper/95 backdrop-blur-xl border-t border-line">
+  <div id="mobileMenu" class="lg:hidden flex-col px-5 pb-6 pt-2 text-ink bg-paper/95 backdrop-blur-xl border-t border-line">
     <a href="#beranda" class="py-3 border-b border-line">Beranda</a>
     <a href="#tentang" class="py-3 border-b border-line">Tentang</a>
     <a href="#jejak" class="py-3 border-b border-line">Jejak</a>
@@ -454,17 +492,17 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-16 md:gap-10 items-center relative z-10 w-full">
     <!-- LEFT -->
     <div class="text-center md:text-left" data-reveal>
-      <span class="chip chip-forest">
+      <span class="chip chip-azure">
         <svg class="icon-sm"><use href="#i-flag"/></svg>
         FORUM KOHATI PB HMI 2027–2029
       </span>
 
-      <h1 class="font-display font-medium leading-[0.95] text-5xl sm:text-7xl md:text-7xl mt-7">
+      <h1 class="font-display font-medium fluid-h1 mt-7">
         <span class="block">TRANSFORMASI</span>
         <span class="block hero-title-accent">KOHATI</span>
       </h1>
 
-      <p class="font-display italic text-xl sm:text-2xl text-forest-dark mt-6 leading-snug">
+      <p class="font-display italic text-xl sm:text-2xl text-azure-dark mt-6 leading-snug">
         Membangun Muslimah Berkualitas<br>Insan Cita.
       </p>
 
@@ -495,7 +533,7 @@
           <img src="assets/dini.png" class="w-full rounded-[2rem]" alt="Dini Asmiatul Amanah, Calon Ketua Umum KOHATI PB HMI 2027–2029" loading="eager">
         </div>
         <div class="hero-credential glass hidden sm:flex items-center gap-3 rounded-2xl p-4 shadow-xl">
-          <div class="icon-tile icon-tile-rose">
+          <div class="icon-tile icon-tile-sky">
             <svg class="icon"><use href="#i-award"/></svg>
           </div>
           <div>
@@ -507,7 +545,7 @@
     </div>
   </div>
 
-  <a href="#tentang" class="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-gray-400 hover:text-forest-dark transition-colors" aria-label="Gulir ke bawah">
+  <a href="#tentang" class="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-gray-400 hover:text-sky-dark transition-colors" aria-label="Gulir ke bawah">
     <span class="eyebrow text-[10px]">Scroll</span>
     <svg class="icon-sm"><use href="#i-chevron-down"/></svg>
   </a>
@@ -522,9 +560,9 @@
       </div>
 
       <div class="order-1 md:order-2 text-center md:text-left">
-        <p class="eyebrow text-blossom-600">Tentang Kandidat</p>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">Dini Asmiatul Amanah, M.Pd</h2>
-        <p class="text-forest-dark font-medium mt-2">Calon Ketua Umum KOHATI PB HMI 2027–2029</p>
+        <p class="eyebrow text-sky-600">Tentang Kandidat</p>
+        <h2 class="font-display fluid-h2 font-semibold mt-4">Dini Asmiatul Amanah, M.Pd</h2>
+        <p class="text-azure-dark font-medium mt-2">Calon Ketua Umum KOHATI PB HMI 2027–2029</p>
 
         <p class="lede mt-7">
           Aktivis perempuan, akademisi, dan kader HMI yang telah berkiprah pada
@@ -534,15 +572,15 @@
         </p>
 
         <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-8" data-stagger>
-          <span class="chip chip-rose"><svg class="icon-sm"><use href="#i-cap"/></svg>Akademisi</span>
-          <span class="chip chip-forest"><svg class="icon-sm"><use href="#i-compass"/></svg>Peneliti</span>
-          <span class="chip chip-rose"><svg class="icon-sm"><use href="#i-users"/></svg>Aktivis Perempuan</span>
-          <span class="chip chip-forest"><svg class="icon-sm"><use href="#i-flag"/></svg>Pemimpin Organisasi</span>
-          <span class="chip chip-rose"><svg class="icon-sm"><use href="#i-award"/></svg>Magister Pendidikan</span>
+          <span class="chip chip-sky"><svg class="icon-sm"><use href="#i-cap"/></svg>Akademisi</span>
+          <span class="chip chip-azure"><svg class="icon-sm"><use href="#i-compass"/></svg>Peneliti</span>
+          <span class="chip chip-sky"><svg class="icon-sm"><use href="#i-users"/></svg>Aktivis Perempuan</span>
+          <span class="chip chip-azure"><svg class="icon-sm"><use href="#i-flag"/></svg>Pemimpin Organisasi</span>
+          <span class="chip chip-sky"><svg class="icon-sm"><use href="#i-award"/></svg>Magister Pendidikan</span>
         </div>
 
-        <blockquote class="mt-9 border-l-2 border-blossom-500 pl-5 text-left">
-          <p class="font-display italic text-lg sm:text-xl text-blossom-700 leading-relaxed">
+        <blockquote class="mt-9 border-l-2 border-sky-500 pl-5 text-left">
+          <p class="font-display italic text-lg sm:text-xl text-sky-700 leading-relaxed">
             "Peradaban besar lahir dari perempuan yang diberi ruang untuk memimpin."
           </p>
         </blockquote>
@@ -555,8 +593,8 @@
 <section id="jejak" class="py-20 sm:py-28 md:py-36 bg-mist" data-reveal>
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="text-center mb-16 md:mb-20">
-      <p class="eyebrow text-blossom-600">Jejak Kepemimpinan</p>
-      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">Perjalanan yang Membentuk Arah</h2>
+      <p class="eyebrow text-sky-600">Jejak Kepemimpinan</p>
+      <h2 class="font-display fluid-h2 font-semibold mt-4">Perjalanan yang Membentuk Arah</h2>
       <p class="lede mt-5 max-w-xl mx-auto">Sepuluh tahun langkah kecil yang perlahan membentuk perjalanan kepemimpinan besar.</p>
     </div>
 
@@ -568,7 +606,7 @@
         <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
           <div class="absolute md:static left-0 top-0"><div class="timeline-dot">1</div></div>
           <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
-            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-blossom-600">2017</h3>
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-sky-600">2017</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Bendahara Umum HMI Komisariat FPIPS UPI.</p>
           </div>
           <div class="hidden md:block"></div>
@@ -578,7 +616,7 @@
           <div class="absolute md:static left-0 top-0"><div class="timeline-dot">2</div></div>
           <div class="hidden md:block"></div>
           <div class="pl-16 md:pl-0 md:pl-14">
-            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-forest-dark">2018</h3>
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-azure-dark">2018</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Ketua Umum HMI Komisariat FPIPS UPI.</p>
           </div>
         </div>
@@ -586,7 +624,7 @@
         <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
           <div class="absolute md:static left-0 top-0"><div class="timeline-dot">3</div></div>
           <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
-            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-blossom-600">2021</h3>
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-sky-600">2021</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Ketua Umum KOHATI Cabang Bandung.</p>
           </div>
           <div class="hidden md:block"></div>
@@ -596,7 +634,7 @@
           <div class="absolute md:static left-0 top-0"><div class="timeline-dot">4</div></div>
           <div class="hidden md:block"></div>
           <div class="pl-16 md:pl-0 md:pl-14">
-            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-forest-dark">2024</h3>
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-azure-dark">2024</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Ketua Bidang Pemberdayaan Umat PB HMI.</p>
           </div>
         </div>
@@ -604,7 +642,7 @@
         <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
           <div class="absolute md:static left-0 top-0"><div class="timeline-dot">5</div></div>
           <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
-            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-blossom-600">2027</h3>
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-sky-600">2027</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Calon Ketua Umum KOHATI PB HMI.</p>
           </div>
           <div class="hidden md:block"></div>
@@ -615,44 +653,44 @@
     <!-- Bukti Kepemimpinan counters -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-20 md:mt-24" data-stagger>
       <div class="card text-center p-6 sm:p-9">
-        <p class="font-display text-3xl sm:text-4xl font-semibold text-blossom-600 counter" data-target="10" data-suffix="+">0</p>
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-sky-600 counter" data-target="10" data-suffix="+">0</p>
         <p class="mt-2 text-sm text-gray-500">Tahun Pengabdian</p>
       </div>
       <div class="card text-center p-6 sm:p-9">
-        <p class="font-display text-3xl sm:text-4xl font-semibold text-forest-dark counter" data-target="25" data-suffix="+">0</p>
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-azure-dark counter" data-target="25" data-suffix="+">0</p>
         <p class="mt-2 text-sm text-gray-500">Forum Nasional</p>
       </div>
       <div class="card text-center p-6 sm:p-9">
-        <p class="font-display text-3xl sm:text-4xl font-semibold text-blossom-600 counter" data-target="60" data-suffix="+">0</p>
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-sky-600 counter" data-target="60" data-suffix="+">0</p>
         <p class="mt-2 text-sm text-gray-500">Cabang Dikunjungi</p>
       </div>
       <div class="card text-center p-6 sm:p-9">
-        <p class="font-display text-3xl sm:text-4xl font-semibold text-forest-dark counter" data-target="1500" data-suffix="+">0</p>
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-azure-dark counter" data-target="1500" data-suffix="+">0</p>
         <p class="mt-2 text-sm text-gray-500">Kader Dibina</p>
       </div>
     </div>
 
     <!-- Pengakuan -->
     <div class="mt-16 md:mt-20">
-      <p class="eyebrow text-center text-forest-600 mb-8">Pengakuan</p>
+      <p class="eyebrow text-center text-azure-600 mb-8">Pengakuan</p>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" data-stagger>
         <div class="card p-5 sm:p-7 flex flex-col gap-3">
-          <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-trophy"/></svg></div>
+          <div class="icon-tile icon-tile-sky"><svg class="icon"><use href="#i-trophy"/></svg></div>
           <h3 class="font-semibold text-sm leading-snug">Runner Up Puteri Wisata Indonesia</h3>
           <p class="text-xs text-gray-500">2021</p>
         </div>
         <div class="card p-5 sm:p-7 flex flex-col gap-3">
-          <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-award"/></svg></div>
+          <div class="icon-tile icon-tile-azure"><svg class="icon"><use href="#i-award"/></svg></div>
           <h3 class="font-semibold text-sm leading-snug">Puteri Wisata Jawa Barat</h3>
           <p class="text-xs text-gray-500">2020</p>
         </div>
         <div class="card p-5 sm:p-7 flex flex-col gap-3">
-          <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-book"/></svg></div>
+          <div class="icon-tile icon-tile-sky"><svg class="icon"><use href="#i-book"/></svg></div>
           <h3 class="font-semibold text-sm leading-snug">Publikasi Scopus</h3>
           <p class="text-xs text-gray-500">Q3 International Journal</p>
         </div>
         <div class="card p-5 sm:p-7 flex flex-col gap-3">
-          <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-trophy"/></svg></div>
+          <div class="icon-tile icon-tile-azure"><svg class="icon"><use href="#i-trophy"/></svg></div>
           <h3 class="font-semibold text-sm leading-snug">Peserta Terbaik LK KOHATI</h3>
           <p class="text-xs text-gray-500">Semarang</p>
         </div>
@@ -665,12 +703,12 @@
 <section id="visi" class="py-20 sm:py-28 md:py-36" data-reveal>
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="text-center mb-16 md:mb-20">
-      <p class="eyebrow text-forest-600">Visi Besar</p>
-      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">Tiga Pilar Transformasi</h2>
+      <p class="eyebrow text-azure-600">Visi Besar</p>
+      <h2 class="font-display fluid-h2 font-semibold mt-4">Tiga Pilar Transformasi</h2>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6 md:gap-8" data-stagger>
-      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, var(--rose), var(--rose-dark));">
+      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, var(--sky), var(--sky-dark));">
         <div class="icon-xl"><svg class="icon-xl"><use href="#i-sprout"/></svg></div>
         <h3 class="font-display text-2xl sm:text-3xl font-semibold mt-7">Elevating Development</h3>
         <ul class="mt-6 space-y-3 opacity-95">
@@ -681,7 +719,7 @@
         </ul>
       </div>
 
-      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, var(--forest), var(--forest-dark));">
+      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, var(--azure), var(--azure-dark));">
         <div class="icon-xl"><svg class="icon-xl"><use href="#i-building"/></svg></div>
         <h3 class="font-display text-2xl sm:text-3xl font-semibold mt-7">Organizational Transformation</h3>
         <ul class="mt-6 space-y-3 opacity-95">
@@ -692,8 +730,8 @@
         </ul>
       </div>
 
-      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, #262626, var(--ink));">
-        <div class="icon-xl text-blossom-400"><svg class="icon-xl"><use href="#i-handshake"/></svg></div>
+      <div class="rounded-[2rem] p-8 sm:p-10 text-white" style="background: linear-gradient(150deg, #1B2B3A, var(--ink));">
+        <div class="icon-xl text-sky-300"><svg class="icon-xl"><use href="#i-handshake"/></svg></div>
         <h3 class="font-display text-2xl sm:text-3xl font-semibold mt-7">Collaboration &amp; Impact</h3>
         <ul class="mt-6 space-y-3 opacity-95">
           <li class="flex items-center gap-2.5"><svg class="icon-sm shrink-0"><use href="#i-check"/></svg>Kemitraan strategis</li>
@@ -710,49 +748,49 @@
 <section id="program" class="py-20 sm:py-28 md:py-36 bg-mist" data-reveal>
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="text-center mb-16 md:mb-20">
-      <p class="eyebrow text-blossom-600">Program Prioritas</p>
-      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">8 Program untuk KOHATI Baru</h2>
+      <p class="eyebrow text-sky-600">Program Prioritas</p>
+      <h2 class="font-display fluid-h2 font-semibold mt-4">8 Program untuk KOHATI Baru</h2>
       <p class="lede mt-5 max-w-xl mx-auto">Gagasan besar diterjemahkan menjadi langkah konkret dan terukur.</p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6" data-stagger>
       <div class="card p-6 sm:p-7">
-        <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-bulb"/></svg></div>
+        <div class="icon-tile icon-tile-sky"><svg class="icon"><use href="#i-bulb"/></svg></div>
         <h3 class="font-semibold text-base mt-6">KOHATI Transformasi</h3>
         <p class="text-sm text-gray-500 mt-2 leading-relaxed">Reformasi arah gerak KOHATI menuju organisasi yang lebih adaptif dan berdampak.</p>
       </div>
       <div class="card p-6 sm:p-7">
-        <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-monitor"/></svg></div>
+        <div class="icon-tile icon-tile-azure"><svg class="icon"><use href="#i-monitor"/></svg></div>
         <h3 class="font-semibold text-base mt-6">Digitalisasi &amp; Development</h3>
         <p class="text-sm text-gray-500 mt-2 leading-relaxed">Sistem digital untuk kaderisasi, administrasi, dan pelaporan yang efisien.</p>
       </div>
       <div class="card p-6 sm:p-7">
-        <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-compass"/></svg></div>
+        <div class="icon-tile icon-tile-sky"><svg class="icon"><use href="#i-compass"/></svg></div>
         <h3 class="font-semibold text-base mt-6">Research &amp; Policy Center</h3>
         <p class="text-sm text-gray-500 mt-2 leading-relaxed">Pusat kajian dan rekomendasi kebijakan berbasis riset untuk isu perempuan dan umat.</p>
       </div>
       <div class="card p-6 sm:p-7">
-        <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-globe"/></svg></div>
+        <div class="icon-tile icon-tile-azure"><svg class="icon"><use href="#i-globe"/></svg></div>
         <h3 class="font-semibold text-base mt-6">Society Global Partnership</h3>
         <p class="text-sm text-gray-500 mt-2 leading-relaxed">Memperluas kemitraan strategis dengan lembaga nasional dan internasional.</p>
       </div>
       <div class="card p-6 sm:p-7">
-        <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-wallet"/></svg></div>
+        <div class="icon-tile icon-tile-sky"><svg class="icon"><use href="#i-wallet"/></svg></div>
         <h3 class="font-semibold text-base mt-6">Women Economic Empowerment</h3>
         <p class="text-sm text-gray-500 mt-2 leading-relaxed">Pemberdayaan ekonomi bagi kader dan perempuan di lingkungan cabang.</p>
       </div>
       <div class="card p-6 sm:p-7">
-        <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-database"/></svg></div>
+        <div class="icon-tile icon-tile-azure"><svg class="icon"><use href="#i-database"/></svg></div>
         <h3 class="font-semibold text-base mt-6">KOHATI Data Center</h3>
         <p class="text-sm text-gray-500 mt-2 leading-relaxed">Basis data nasional untuk memetakan potensi dan kebutuhan kader di 34 provinsi.</p>
       </div>
       <div class="card p-6 sm:p-7">
-        <div class="icon-tile icon-tile-rose"><svg class="icon"><use href="#i-leaf"/></svg></div>
+        <div class="icon-tile icon-tile-sky"><svg class="icon"><use href="#i-leaf"/></svg></div>
         <h3 class="font-semibold text-base mt-6">Green Movement</h3>
         <p class="text-sm text-gray-500 mt-2 leading-relaxed">Gerakan lingkungan berkelanjutan yang digerakkan oleh kader di setiap cabang.</p>
       </div>
       <div class="card p-6 sm:p-7">
-        <div class="icon-tile icon-tile-forest"><svg class="icon"><use href="#i-cap"/></svg></div>
+        <div class="icon-tile icon-tile-azure"><svg class="icon"><use href="#i-cap"/></svg></div>
         <h3 class="font-semibold text-base mt-6">Scholarship</h3>
         <p class="text-sm text-gray-500 mt-2 leading-relaxed">Beasiswa dan dukungan pendidikan bagi kader berprestasi dari seluruh cabang.</p>
       </div>
@@ -764,8 +802,8 @@
 <section id="galeri" class="py-20 sm:py-28 md:py-36" data-reveal>
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="text-center mb-14 md:mb-16">
-      <p class="eyebrow text-forest-600">Gallery</p>
-      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mt-4">Jejak Perjalanan</h2>
+      <p class="eyebrow text-azure-600">Gallery</p>
+      <h2 class="font-display fluid-h2 font-semibold mt-4">Jejak Perjalanan</h2>
       <p class="lede mt-5 max-w-xl mx-auto">Dokumentasi pengabdian, kaderisasi, dan kolaborasi.</p>
     </div>
 
@@ -785,11 +823,11 @@
 <!-- ================= MANIFESTO ("Mengapa Saya Maju") ================= -->
 <section id="manifesto" class="manifesto-section py-24 sm:py-32 md:py-40 relative overflow-hidden" data-reveal>
   <div class="max-w-5xl mx-auto px-5 sm:px-8 relative">
-    <p class="eyebrow text-blossom-300">Mengapa Saya Maju</p>
+    <p class="eyebrow text-sky-300">Mengapa Saya Maju</p>
 
     <svg class="icon-xl manifesto-quote-mark mt-8" style="width:3.5rem;height:3.5rem;"><use href="#i-quote"/></svg>
 
-    <h2 class="font-display manifesto-heading text-3xl sm:text-5xl md:text-6xl font-medium mt-6">
+    <h2 class="font-display manifesto-heading fluid-h2-lg font-medium mt-6">
       Transformasi bukan berarti mengubah jati diri organisasi, melainkan
       memperkuat nilai perjuangan agar semakin memberi manfaat.
     </h2>
@@ -816,7 +854,7 @@
       perjuangannya sebagai rumah bagi Muslimah Berkualitas Insan Cita.
     </p>
 
-    <p class="font-display italic text-blossom-200 mt-10 text-lg">
+    <p class="font-display italic text-sky-200 mt-10 text-lg">
       — Dini Asmiatul Amanah, Calon Ketua Umum KOHATI PB HMI 2027–2029
     </p>
   </div>
@@ -824,8 +862,10 @@
 
 <!-- ================= CTA ================= -->
 <section class="cta-section py-24 sm:py-32 md:py-40 text-white" data-reveal>
-  <div class="max-w-4xl mx-auto text-center px-5 sm:px-8">
-    <h2 class="font-display text-4xl sm:text-6xl md:text-7xl font-medium leading-[1.05]">
+  <div class="facet facet-1" aria-hidden="true"></div>
+  <div class="facet facet-2" aria-hidden="true"></div>
+  <div class="max-w-4xl mx-auto text-center px-5 sm:px-8 relative z-10">
+    <h2 class="font-display fluid-h1-lg font-medium">
       Mari Bersama<br>Mewujudkan Transformasi KOHATI
     </h2>
 
@@ -852,7 +892,7 @@
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-12 text-center sm:text-left">
       <div>
         <h2 class="font-display text-2xl sm:text-3xl font-semibold">
-          KOHATI <span class="text-blossom-400">Transformatif</span>
+          KOHATI <span class="text-sky-400">Transformatif</span>
         </h2>
         <p class="text-gray-400 mt-6 leading-7">
           Membangun Muslimah Berkualitas Insan Cita melalui transformasi
@@ -874,13 +914,13 @@
       <div>
         <h3 class="font-semibold text-lg">Ikuti</h3>
         <div class="flex gap-4 mt-6 justify-center sm:justify-start">
-          <a href="#" class="w-12 h-12 rounded-full bg-blossom-500 flex items-center justify-center hover:bg-blossom-600 transition-colors" aria-label="Instagram TRANSFORMASI KOHATI">
+          <a href="#" class="w-12 h-12 rounded-full bg-sky-500 flex items-center justify-center hover:bg-sky-600 transition-colors" aria-label="Instagram TRANSFORMASI KOHATI">
             <svg class="icon"><use href="#i-instagram"/></svg>
           </a>
-          <a href="#" class="w-12 h-12 rounded-full bg-forest-600 flex items-center justify-center hover:bg-forest-700 transition-colors" aria-label="WhatsApp Tim TRANSFORMASI KOHATI">
+          <a href="#" class="w-12 h-12 rounded-full bg-azure-600 flex items-center justify-center hover:bg-azure-700 transition-colors" aria-label="WhatsApp Tim TRANSFORMASI KOHATI">
             <svg class="icon"><use href="#i-message"/></svg>
           </a>
-          <a href="#" class="w-12 h-12 rounded-full bg-blossom-500 flex items-center justify-center hover:bg-blossom-600 transition-colors" aria-label="Email Tim TRANSFORMASI KOHATI">
+          <a href="#" class="w-12 h-12 rounded-full bg-sky-500 flex items-center justify-center hover:bg-sky-600 transition-colors" aria-label="Email Tim TRANSFORMASI KOHATI">
             <svg class="icon"><use href="#i-mail"/></svg>
           </a>
         </div>
@@ -902,32 +942,56 @@
 
 <script>
   /* =========================================================
-     MODULE: Scroll progress bar
+     MODULE: single rAF-throttled scroll pipeline
+     All scroll-driven updates (progress bar, navbar state,
+     parallax, back-to-top visibility) share ONE listener and
+     run inside requestAnimationFrame, instead of four separate
+     'scroll' listeners each doing their own reads/writes. This
+     avoids redundant layout work and keeps scrolling smoother,
+     especially on mobile.
   ========================================================= */
-  function initScrollProgress() {
+  function initScrollPipeline() {
     const bar = document.getElementById('scroll-progress-bar');
+    const nav = document.getElementById('navbar');
+    const backToTop = document.getElementById('back-to-top');
+    const blobs = document.querySelectorAll('.hero-blob');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let ticking = false;
+
     const update = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       bar.style.width = pct + '%';
+
+      nav.classList.toggle('is-scrolled', scrollTop > 40);
+      backToTop.classList.toggle('visible', scrollTop > 600);
+
+      if (!reduceMotion) {
+        blobs.forEach((blob, i) => {
+          blob.style.transform = `translate3d(0, ${scrollTop * (i === 0 ? 0.08 : 0.05)}px, 0)`;
+        });
+      }
+
+      ticking = false;
     };
-    window.addEventListener('scroll', update, { passive: true });
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
     update();
   }
 
   /* =========================================================
-     MODULE: Navbar — solid on scroll + active section link
+     MODULE: Navbar — active section link
   ========================================================= */
-  function initNavbar() {
-    const nav = document.getElementById('navbar');
-
-    const onScroll = () => {
-      nav.classList.toggle('is-scrolled', window.scrollY > 40);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
+  function initNavActiveLink() {
     const links = document.querySelectorAll('[data-nav-link]');
     const sections = Array.from(links)
       .map((link) => document.querySelector(link.getAttribute('href')))
@@ -952,7 +1016,9 @@
   }
 
   /* =========================================================
-     MODULE: Mobile menu
+     MODULE: Mobile menu (smooth height/opacity transition,
+     driven by a single 'open' class rather than swapping
+     hidden/flex utility classes abruptly)
   ========================================================= */
   function initMobileMenu() {
     const menuBtn = document.getElementById('menuBtn');
@@ -961,41 +1027,43 @@
     const iconClose = document.getElementById('iconClose');
 
     const openMenu = () => {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('flex');
+      mobileMenu.classList.add('open');
       iconOpen.classList.add('hidden');
       iconClose.classList.remove('hidden');
       menuBtn.setAttribute('aria-expanded', 'true');
     };
 
     const closeMenu = () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
+      mobileMenu.classList.remove('open');
       iconOpen.classList.remove('hidden');
       iconClose.classList.add('hidden');
       menuBtn.setAttribute('aria-expanded', 'false');
     };
 
     menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.contains('flex') ? closeMenu() : openMenu();
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
     });
 
     mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   }
 
   /* =========================================================
-     MODULE: Animated counters (supports custom suffix)
+     MODULE: Animated counters — smoother easing (easeOutExpo)
+     plus locale-aware thousand separators for readability.
   ========================================================= */
   function animateCounter(el) {
     const target = +el.getAttribute('data-target');
     const suffix = el.hasAttribute('data-suffix') ? el.getAttribute('data-suffix') : '+';
-    const duration = 1400;
+    const duration = 1600;
     const start = performance.now();
+
+    const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
     const tick = (now) => {
       const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target) + (progress >= 1 ? suffix : '');
+      const eased = easeOutExpo(progress);
+      const value = Math.round(eased * target);
+      el.textContent = value.toLocaleString('id-ID') + (progress >= 1 ? suffix : '');
       if (progress < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -1025,37 +1093,10 @@
     revealTargets.forEach((el) => observer.observe(el));
   }
 
-  /* =========================================================
-     MODULE: Light parallax on hero blobs
-  ========================================================= */
-  function initParallax() {
-    const blobs = document.querySelectorAll('.hero-blob');
-    if (!blobs.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      blobs.forEach((blob, i) => {
-        blob.style.transform = `translateY(${y * (i === 0 ? 0.08 : 0.05)}px)`;
-      });
-    }, { passive: true });
-  }
-
-  /* =========================================================
-     MODULE: Back to top button
-  ========================================================= */
-  function initBackToTop() {
-    const btn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      btn.classList.toggle('visible', window.scrollY > 600);
-    }, { passive: true });
-  }
-
-  initScrollProgress();
-  initNavbar();
+  initScrollPipeline();
+  initNavActiveLink();
   initMobileMenu();
   initScrollReveal();
-  initParallax();
-  initBackToTop();
 </script>
 
 </body>
