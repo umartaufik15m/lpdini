@@ -205,17 +205,47 @@
   .nav-link.active { color: var(--sky-dark); }
   .nav-link.active::after { width: 100%; }
 
-  /* Mobile menu: animated with height + fade instead of an abrupt
-     hidden/flex swap, so opening and closing feels smooth. */
-  #mobileMenu {
-    display: flex;
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-6px);
-    transition: max-height .5s var(--ease), opacity .35s var(--ease), transform .35s var(--ease);
+  /* Guard desktop-only nav elements with plain CSS (not Tailwind
+     utility classes). Tailwind is loaded via a runtime CDN script,
+     which needs a moment to scan the DOM and inject utilities — on
+     a slow connection this caused a brief flash where the desktop
+     nav links rendered unstyled on mobile (looked like clipped
+     text, e.g. "Beranda"). Plain CSS applies from first paint, so
+     these rules are correct immediately, with no flash. */
+  #navLinks, #navCta { display: none; }
+  @media (min-width: 1024px) {
+    #navLinks { display: flex; align-items: center; gap: 2rem; }
+    #navCta { display: inline-flex; }
+    #menuBtn { display: none; }
   }
-  #mobileMenu.open { max-height: 28rem; opacity: 1; transform: translateY(0); }
+
+  /* Mobile menu: a clean show/hide overlay. Only opacity, transform,
+     and visibility are animated — there is no max-height/overflow
+     clipping step, so the menu is either fully invisible or fully
+     visible, with no in-between frame where the top link (e.g.
+     "Beranda") could appear partially cut off mid-transition. */
+  @media (max-width: 1023.98px) {
+    #mobileMenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      display: flex;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      box-shadow: 0 24px 40px -20px rgba(18,32,43,.25);
+      transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s;
+    }
+    #mobileMenu.open {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear 0s;
+    }
+  }
 
   /* =========================================================
      8. SCROLL PROGRESS BAR
@@ -452,7 +482,7 @@
       KOHATI <span class="text-sky-600">Transformatif</span>
     </a>
 
-    <div class="hidden lg:flex items-center gap-8 text-sm">
+    <div id="navLinks" class="lg:flex items-center gap-8 text-sm">
       <a data-nav-link href="#beranda" class="nav-link">Beranda</a>
       <a data-nav-link href="#tentang" class="nav-link">Tentang</a>
       <a data-nav-link href="#jejak" class="nav-link">Jejak</a>
@@ -462,7 +492,7 @@
       <a data-nav-link href="#manifesto" class="nav-link">Manifesto</a>
     </div>
 
-    <a href="#manifesto" class="hidden lg:inline-flex btn btn-primary !py-3 !px-6 text-sm">
+    <a id="navCta" href="#manifesto" class="lg:inline-flex btn btn-primary !py-3 !px-6 text-sm">
       Baca Manifesto
     </a>
 
@@ -603,48 +633,53 @@
       <div class="timeline-line"></div>
 
       <div class="space-y-10 md:space-y-16">
-        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
-          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">1</div></div>
+        <div class="timeline-item grid md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:hidden left-0 top-0"><div class="timeline-dot">1</div></div>
           <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
             <h3 class="font-display text-2xl sm:text-3xl font-semibold text-sky-600">2017</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Bendahara Umum HMI Komisariat FPIPS UPI.</p>
           </div>
+          <div class="hidden md:flex md:justify-center"><div class="timeline-dot">1</div></div>
           <div class="hidden md:block"></div>
         </div>
 
-        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
-          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">2</div></div>
+        <div class="timeline-item grid md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:hidden left-0 top-0"><div class="timeline-dot">2</div></div>
           <div class="hidden md:block"></div>
+          <div class="hidden md:flex md:justify-center"><div class="timeline-dot">2</div></div>
           <div class="pl-16 md:pl-0 md:pl-14">
             <h3 class="font-display text-2xl sm:text-3xl font-semibold text-azure-dark">2018</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Ketua Umum HMI Komisariat FPIPS UPI.</p>
           </div>
         </div>
 
-        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
-          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">3</div></div>
+        <div class="timeline-item grid md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:hidden left-0 top-0"><div class="timeline-dot">3</div></div>
           <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
             <h3 class="font-display text-2xl sm:text-3xl font-semibold text-sky-600">2021</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Ketua Umum KOHATI Cabang Bandung.</p>
           </div>
+          <div class="hidden md:flex md:justify-center"><div class="timeline-dot">3</div></div>
           <div class="hidden md:block"></div>
         </div>
 
-        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
-          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">4</div></div>
+        <div class="timeline-item grid md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:hidden left-0 top-0"><div class="timeline-dot">4</div></div>
           <div class="hidden md:block"></div>
+          <div class="hidden md:flex md:justify-center"><div class="timeline-dot">4</div></div>
           <div class="pl-16 md:pl-0 md:pl-14">
             <h3 class="font-display text-2xl sm:text-3xl font-semibold text-azure-dark">2024</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Ketua Bidang Pemberdayaan Umat PB HMI.</p>
           </div>
         </div>
 
-        <div class="timeline-item grid md:grid-cols-2 items-center gap-4 md:gap-10 relative">
-          <div class="absolute md:static left-0 top-0"><div class="timeline-dot">5</div></div>
+        <div class="timeline-item grid md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-10 relative">
+          <div class="absolute md:hidden left-0 top-0"><div class="timeline-dot">5</div></div>
           <div class="pl-16 md:pl-0 md:pr-14 text-left md:text-right">
             <h3 class="font-display text-2xl sm:text-3xl font-semibold text-sky-600">2027</h3>
             <p class="mt-2 text-gray-600 leading-relaxed">Calon Ketua Umum KOHATI PB HMI.</p>
           </div>
+          <div class="hidden md:flex md:justify-center"><div class="timeline-dot">5</div></div>
           <div class="hidden md:block"></div>
         </div>
       </div>
@@ -934,6 +969,11 @@
     </p>
   </div>
 </footer>
+
+<!-- ================= BACK TO TOP ================= -->
+<a href="#beranda" id="back-to-top" aria-label="Kembali ke atas">
+  <svg class="icon"><use href="#i-arrow-up"/></svg>
+</a>
 
 <script>
   /* =========================================================
